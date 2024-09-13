@@ -78,9 +78,9 @@ const UserDetails = () => {
         >
           <Toolbar>
             <Typography
-              variant="h3"
+              variant="h4"
               align="right"
-              sx={{ width: "38.5%", color: "white" }}
+              sx={{ width: "35%", color: "white" }}
             >
               USER DETAILS
             </Typography>
@@ -159,7 +159,7 @@ const UserDetails = () => {
                 <Typography
                   sx={{
                     color: "white",
-                    fontSize: "1.6rem",
+                    fontSize: "1.4rem",
                     display: "flex",
                     alignItems: "end",
                     justifyContent: "start",
@@ -168,7 +168,7 @@ const UserDetails = () => {
                   <HomeIcon
                     sx={{
                       color: "white",
-                      fontSize: "4rem",
+                      fontSize: "3.5rem",
                       marginRight: "1rem",
                     }}
                   />{" "}
@@ -213,7 +213,7 @@ const UserDetails = () => {
                           sx={{
                             width: "100%",
                             height: "30%",
-                            paddingInline: "5rem",
+                            paddingInline: "2rem",
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
@@ -230,8 +230,8 @@ const UserDetails = () => {
                           >
                             <Paper
                               sx={{
-                                width: "80%",
-                                height: "80%",
+                                width: "75%",
+                                height: "90%",
                                 backgroundColor: "white",
                                 borderRadius: "50%",
                                 display: "flex",
@@ -242,7 +242,7 @@ const UserDetails = () => {
                               <img
                                 src={defaultImg}
                                 alt="userImg"
-                                width={"90%"}
+                                width={"100%"}
                                 height={"100%"}
                                 style={{ borderRadius: "50%" }}
                               />
@@ -258,14 +258,14 @@ const UserDetails = () => {
                               flexDirection: "column",
                             }}
                           >
-                            <Typography variant="h5">
+                            <Typography variant="h6">
                               <span style={{ fontWeight: "bold" }}>
                                 UserName:{" "}
                               </span>
                               {name}
                             </Typography>
 
-                            <Typography variant="h5">
+                            <Typography variant="h6">
                               <span style={{ fontWeight: "bold" }}>
                                 UserId :{" "}
                               </span>
@@ -294,26 +294,26 @@ const UserDetails = () => {
                               flexDirection: "column",
                             }}
                           >
-                            <Typography variant="h5">
+                            <Typography variant="h6">
                               <span style={{ fontWeight: "bold" }}>
                                 Email:{" "}
                               </span>
                               {email}
                             </Typography>
 
-                            <Typography variant="h5">
+                            <Typography variant="h6">
                               <span style={{ fontWeight: "bold" }}>
                                 isEmailVerified :{" "}
                               </span>
                               {isEmailVerified}
                             </Typography>
-                            <Typography variant="h5">
+                            <Typography variant="h6">
                               <span style={{ fontWeight: "bold" }}>
                                 Created At :{" "}
                               </span>
                               {createAt}
                             </Typography>
-                            <Typography variant="h5">
+                            <Typography variant="h6">
                               <span style={{ fontWeight: "bold" }}>
                                 Updated At :{" "}
                               </span>

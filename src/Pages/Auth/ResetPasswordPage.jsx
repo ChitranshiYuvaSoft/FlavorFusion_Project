@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -10,6 +10,10 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { styled } from "@mui/material/styles";
 import Navbar from "../../Components/Navbar/Navbar";
+import { useDispatch } from "react-redux";
+import { resetPassword } from "../../Redux/auth/authSlice";
+import { useParams } from "react-router-dom";
+import BackBtn from "../../Components/Button/BackBtn";
 
 const ResetPasswordPage = () => {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -20,6 +24,27 @@ const ResetPasswordPage = () => {
     event.preventDefault();
   };
 
+  const dispatch = useDispatch();
+  // const params = useParams();
+
+  const { token, id } = useParams();
+  console.log(token, id, "35346457568");
+
+  // Reset Password
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const handleResetPassword = (e) => {
+    e.preventDefault();
+    dispatch(
+      resetPassword({
+        password: password,
+        token: token,
+        userId: id,
+      })
+    );
+  };
+
   const CustomLabel = styled("label")(({ theme }) => ({
     fontSize: "1.5rem",
     color: "white",
@@ -27,7 +52,7 @@ const ResetPasswordPage = () => {
   }));
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <Box className="reset-password-page">
         <Box className="left-reset-password"></Box>
         <Box className="right-reset-password">
@@ -35,6 +60,7 @@ const ResetPasswordPage = () => {
             className="reset-password-card"
             sx={{ paddingBlock: "1.5rem", paddingInline: "1rem" }}
           >
+            <BackBtn Location={'/login'}/>
             <CardContent
               sx={{
                 width: "100%",
@@ -90,6 +116,8 @@ const ResetPasswordPage = () => {
                       fontSize: "1.5rem",
                     },
                   }}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </Box>
 
@@ -129,6 +157,8 @@ const ResetPasswordPage = () => {
                       fontSize: "1.5rem",
                     },
                   }}
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                 />
               </Box>
             </CardContent>
@@ -157,6 +187,8 @@ const ResetPasswordPage = () => {
                     color: "white",
                   },
                 }}
+                type="submit"
+                onClick={handleResetPassword}
               >
                 Reset Password
               </Button>

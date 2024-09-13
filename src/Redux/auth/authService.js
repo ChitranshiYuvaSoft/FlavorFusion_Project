@@ -1,5 +1,6 @@
 import axios from "axios";
 import axiosInstance from "../Interceptors/axiosInterceptors";
+import { Password } from "@mui/icons-material";
 
 // Login User
 const login = async (formdata) => {
@@ -54,10 +55,29 @@ const removeUser = async (id) => {
 // Update User
 const updatedUser = async (userData) => {
   console.log(userData, "from UserData Service");
-  const response = await axiosInstance.put(`/user/${userData.id}`, userData);
+  const response = await axiosInstance.put(`/user/${userData.id}`, {
+    name : userData.name,
+    email : userData.email,
+    password :userData.password
+  });
   console.log(response, "From response Service");
   return response.data;
 };
+
+// Forgot Password
+const userForgetPassword = async(email) => {
+  console.log(email);
+  const response = await axiosInstance.post(`/user/forgot-password`, email);
+  console.log(response);
+  return response;
+}
+
+// Reset Password
+const userPasswordReset = async(data) => {
+  const response = await axiosInstance.post(`/user/reset-password`, data);
+  console.log(response);
+  return response;
+}
 
 const authServices = {
   login,
@@ -68,6 +88,8 @@ const authServices = {
   verification,
   googleUserLogin,
   getUserDetails,
+  userForgetPassword,
+  userPasswordReset
 };
 
 export default authServices;

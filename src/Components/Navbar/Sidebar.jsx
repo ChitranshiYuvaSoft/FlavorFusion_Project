@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import userDefaultImage from "../../assets/Img/userDefaultImage.png";
 
-const drawerWidth = "40rem";
+const drawerWidth = "30rem";
 
 const Sidebar = () => {
   const navigate = useNavigate();
@@ -22,20 +22,14 @@ const Sidebar = () => {
 
   const logout = () => {
     localStorage.clear();
-    navigate("/login")
-    window.location.reload()
+    navigate("/login");
+    window.location.reload();
   };
-
-  
 
   useEffect(() => {
     if (userToken) {
       navigate("/user-dashboard");
-    } 
-    // else{
-    //   window.location.reload()
-    //   navigate('/login')
-    // }
+    }
   }, [userToken]);
 
   const drawer = (
@@ -63,7 +57,7 @@ const Sidebar = () => {
         <List
           sx={{
             width: "100%",
-            height: "15rem",
+            height: "10rem",
             paddingLeft: "1rem",
             display: "flex",
             alignItems: "center",
@@ -72,8 +66,8 @@ const Sidebar = () => {
         >
           <Box
             sx={{
-              width: "30%",
-              height: "58%",
+              width: "25%",
+              height: "65.5%",
               borderRadius: "50%",
               display: "flex",
               alignItems: "center",
@@ -83,14 +77,14 @@ const Sidebar = () => {
             <img
               src={userDefaultImage}
               alt="noImg"
-              width={"80%"}
+              width={"85%"}
               height={"100%"}
               style={{ borderRadius: "50%" }}
             />
           </Box>
           <Box
             sx={{
-              width: "65%",
+              width: "71%",
               height: "90%",
               display: "flex",
               alignItems: "center",
@@ -98,15 +92,14 @@ const Sidebar = () => {
             }}
           >
             <Typography
-              variant="h4"
+              variant="h5"
               sx={{
                 fontWeight: "bold",
-                marginLeft: "1rem",
                 color: "#B1BDC7",
               }}
             >
               {user.name}
-              <Typography variant="h5" sx={{ color: "#B1BDC7" }}>
+              <Typography variant="h6" sx={{ color: "#B1BDC7" }}>
                 <span style={{ fontWeight: "550" }}></span> {user.email}
               </Typography>
             </Typography>
@@ -115,7 +108,11 @@ const Sidebar = () => {
         <List>
           <ListItem onClick={() => navigate("/product-dashboard")}>
             <ListItemText
-              primary={<Typography sx={{ color: 'white', fontSize: '1.5rem' }}>Products</Typography>}
+              primary={
+                <Typography sx={{ color: "white", fontSize: "1.3rem" }}>
+                  Products
+                </Typography>
+              }
               sx={{ color: "white", fontSize: "3rem" }}
             />
             <Button sx={{ color: "white" }}>
@@ -125,7 +122,11 @@ const Sidebar = () => {
 
           <ListItem onClick={() => navigate("/user-dashboard")}>
             <ListItemText
-              primary={<Typography sx={{ color: 'white', fontSize: '1.5rem' }}>Users</Typography>}
+              primary={
+                <Typography sx={{ color: "white", fontSize: "1.3rem" }}>
+                  Users
+                </Typography>
+              }
               sx={{ color: "white", fontSize: "5rem" }}
             />
             <Button sx={{ color: "white" }}>
@@ -135,7 +136,11 @@ const Sidebar = () => {
 
           <ListItem onClick={() => navigate("/category-dashboard")}>
             <ListItemText
-              primary={<Typography sx={{ color: 'white', fontSize: '1.5rem' }}>Categories</Typography>}
+              primary={
+                <Typography sx={{ color: "white", fontSize: "1.3rem" }}>
+                  Categories
+                </Typography>
+              }
               sx={{ color: "white", fontSize: "5rem" }}
             />
             <Button sx={{ color: "white" }}>
@@ -149,8 +154,8 @@ const Sidebar = () => {
           variant="contained"
           sx={{
             width: "100%",
-            py: "1.5rem",
-            fontSize: "1.4rem",
+            py: "1.1rem",
+            fontSize: "1.2rem",
             fontWeight: "bold",
             color: "black",
             backgroundColor: "#D4AF37",

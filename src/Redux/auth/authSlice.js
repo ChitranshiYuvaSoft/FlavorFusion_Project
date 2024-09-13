@@ -133,7 +133,7 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.isError = true;
         state.isSuccess = false;
-        state.message = action.payload
+        state.message = action.payload;
       })
 
       // Single User Info
@@ -167,6 +167,65 @@ const authSlice = createSlice({
         state.isSuccess = true;
       })
       .addCase(deleteUser.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.isSuccess = false;
+        state.message = action.payload;
+      })
+
+      // Update User
+      .addCase(updateUser.pending, (state, action) => {
+        state.isLoading = true;
+        state.isError = false;
+        state.isSuccess = false;
+      })
+      .addCase(updateUser.fulfilled, (state, action) => {
+        console.log(action.payload.message, "update Slice");
+        state.isLoading = false;
+        state.isError = false;
+        state.isSuccess = true;
+        state.allUsers = state.allUsers.map((item) =>
+          item.id === action.payload.id ? action.payload : item
+        );
+        state.edit = { user: {}, isEdit: false };
+      })
+      .addCase(updateUser.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.isSuccess = false;
+        state.message = action.payload;
+      })
+
+      // Forgot Password
+      .addCase(forgotPasword.pending, (state, action) => {
+        state.isLoading = true;
+        state.isError = false;
+        state.isSuccess = false;
+      })
+      .addCase(forgotPasword.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isError = false;
+        state.isSuccess = true;
+      })
+      .addCase(forgotPasword.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.isSuccess = false;
+        state.message = action.payload;
+      })
+
+      // Reset Password
+      .addCase(resetPassword.pending, (state, action) => {
+        state.isLoading = true;
+        state.isError = false;
+        state.isSuccess = false;
+      })
+      .addCase(resetPassword.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isError = false;
+        state.isSuccess = true;
+      })
+      .addCase(resetPassword.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.isSuccess = false;
@@ -271,9 +330,40 @@ export const deleteUser = createAsyncThunk(
 export const updateUser = createAsyncThunk(
   "UPDATE/USER",
   async (userdata, thunkAPI) => {
+    console.log(userdata, "SLice Update Data");
     try {
       const token = thunkAPI.getState().auth.user.token;
+      console.log(token, "Update TOken");
       return await authServices.updatedUser(userdata, token);
+    } catch (error) {
+      console.log(error.message);
+      const message = error.response.data.message;
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
+// Forgot Password
+export const forgotPasword = createAsyncThunk(
+  "FORGOT/PASSWPRD",
+  async (email, thunkAPI) => {
+    console.log(email);
+    try {
+      return await authServices.userForgetPassword(email);
+    } catch (error) {
+      console.log(error.message);
+      const message = error.response.data.message;
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
+// Reset Password
+export const resetPassword = createAsyncThunk(
+  "RESET/PASSWORD",
+  async (userData, thunkAPI) => {
+    try {
+      return await authServices.userPasswordReset(userData);
     } catch (error) {
       console.log(error.message);
       const message = error.response.data.message;

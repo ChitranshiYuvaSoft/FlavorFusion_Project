@@ -23,13 +23,15 @@ import { useNavigate } from "react-router-dom";
 import BackBtn from "../../Components/Button/BackBtn";
 import { toast } from "react-toastify";
 import { boolean } from "yup";
+import { updateUser } from "../../Redux/auth/authSlice";
 
 const UserUpdate = () => {
+  // State Get From Slice
+  const { isLoading, edit } = useSelector((state) => state.auth);
+
   // Hook Call
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  const { isLoading , edit } = useSelector((state) => state.auth);
 
   const [isClosing, setIsClosing] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -47,31 +49,48 @@ const UserUpdate = () => {
     setIsClosing(false);
   };
 
+  //  State
 
-//  State
+  const [userUpdatedData, setUserUpdatedData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
 
-const [userUpdatedData, setUserUpdatedData] = useState({
-    name : "",
-    email : "",
-    password : "123456"
-})
+  const { name, email, password } = userUpdatedData;
 
-const {name, email, password} = userUpdatedData;
-
-const handleChange = (e) => {
+  const handleChange = (e) => {
     setUserUpdatedData({
-        ...userUpdatedData,
-        [e.target.name] : e.target.value
-    })
-}
+      ...userUpdatedData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-console.log(edit)
+  const handleUserUpdate = (e) => {
+    e.preventDefault();
+    if (edit.isEdit) {
+      dispatch(
+        updateUser({
+          id: edit.user.id,
+          name: name,
+          email: email,
+          password: "123456",
+        })
+      );
+    }
+    setUserUpdatedData({
+      name: "",
+      email: "",
+      password: "",
+    });
+  };
+
   useEffect(() => {
     setUserUpdatedData({
-        name : edit.user.name,
-        email : edit.user.email,
-    })
-  },[edit])
+      name: edit.user.name,
+      email: edit.user.email,
+    });
+  }, [edit]);
 
   return (
     <Box
@@ -95,9 +114,9 @@ console.log(edit)
       >
         <Toolbar>
           <Typography
-            variant="h3"
+            variant="h4"
             align="right"
-            sx={{ width: "42.5%", color: "white" }}
+            sx={{ width: "35%", color: "white" }}
           >
             USER UPDATE
           </Typography>
@@ -176,7 +195,7 @@ console.log(edit)
               <Typography
                 sx={{
                   color: "white",
-                  fontSize: "1.6rem",
+                  fontSize: "1.4rem",
                   display: "flex",
                   alignItems: "end",
                   justifyContent: "start",
@@ -185,7 +204,7 @@ console.log(edit)
                 <HomeIcon
                   sx={{
                     color: "white",
-                    fontSize: "4rem",
+                    fontSize: "3.5rem",
                     marginRight: "1rem",
                   }}
                 />{" "}
@@ -219,7 +238,7 @@ console.log(edit)
                     <Card
                       sx={{
                         width: "40%",
-                        height: "70%",
+                        height: "80%",
                         backgroundColor: "white",
                         borderRadius: "0rem",
                       }}
@@ -250,7 +269,7 @@ console.log(edit)
                             },
                             "& .MuiInputBase-input": {
                               color: "#424242",
-                              fontSize: "1.7rem",
+                              fontSize: "1.4rem",
                             },
                           }}
                           name="name"
@@ -269,7 +288,7 @@ console.log(edit)
                             },
                             "& .MuiInputBase-input": {
                               color: "#424242",
-                              fontSize: "1.7rem",
+                              fontSize: "1.4rem",
                             },
                           }}
                           name="email"
@@ -289,7 +308,7 @@ console.log(edit)
                             },
                             "& .MuiInputBase-input": {
                               color: "#424242",
-                              fontSize: "1.7rem",
+                              fontSize: "1.4rem",
                             },
                           }}
                           name="password"
@@ -301,7 +320,7 @@ console.log(edit)
                           fullWidth
                           sx={{
                             paddingBlock: "1rem",
-                            fontSize: "1.4rem",
+                            fontSize: "1.3rem",
                             backgroundColor: "#D4AF37",
                             color: "black",
                             fontWeight: "bold",
@@ -311,13 +330,13 @@ console.log(edit)
                             },
                           }}
                           type="submit"
+                          onClick={handleUserUpdate}
                         >
                           Update
                         </Button>
                       </Paper>
                     </Card>
                   </Box>
-                  <Box></Box>
                 </>
               )}
             </Box>

@@ -80,9 +80,9 @@ const CategoryDetails = () => {
         >
           <Toolbar>
             <Typography
-              variant="h3"
+              variant="h4"
               align="right"
-              sx={{ width: "43%", color: "white" }}
+              sx={{ width: "40%", color: "white" }}
             >
               CATEGORY DETAILS
             </Typography>
@@ -135,7 +135,7 @@ const CategoryDetails = () => {
                 <Typography
                   sx={{
                     color: "white",
-                    fontSize: "1.6rem",
+                    fontSize: "1.4rem",
                     display: "flex",
                     alignItems: "end",
                     justifyContent: "start",
@@ -144,7 +144,7 @@ const CategoryDetails = () => {
                   <HomeIcon
                     sx={{
                       color: "white",
-                      fontSize: "4rem",
+                      fontSize: "3.5rem",
                       marginRight: "1rem",
                     }}
                   />{" "}
@@ -178,17 +178,16 @@ const CategoryDetails = () => {
                       <Card
                         sx={{
                           width: "40%",
-                          height: "50%",
+                          height: "55%",
                           backgroundColor: "white",
                           borderRadius: "0rem",
-                          paddingBlock: "3rem",
                         }}
                       >
                         <BackBtn Location={"/category-dashboard"} />
                         <Paper
                           sx={{
                             width: "100%",
-                            height: "100%",
+                            height: "70%",
                             paddingInline: "5rem",
                             display: "flex",
                             alignItems: "center",
@@ -198,32 +197,32 @@ const CategoryDetails = () => {
                           <Box
                             sx={{
                               width: "100%",
-                              height: "80%",
+                              height: "100%",
                               display: "flex",
                               alignItems: "start",
                               justifyContent: "space-around",
                               flexDirection: "column",
                             }}
                           >
-                            <Typography variant="h5">
+                            <Typography variant="h6">
                               <span style={{ fontWeight: "bold" }}>
                                 Category Name :{" "}
                               </span>
                               {name}
                             </Typography>
-                            <Typography variant="h5">
+                            <Typography variant="h6">
                               <span style={{ fontWeight: "bold" }}>
                                 Category Id:{" "}
                               </span>
                               {_id}
                             </Typography>
-                            <Typography variant="h5">
+                            <Typography variant="h6">
                               <span style={{ fontWeight: "bold" }}>
                                 Create At :{" "}
                               </span>
                               {createAt}
                             </Typography>
-                            <Typography variant="h5">
+                            <Typography variant="h6">
                               <span style={{ fontWeight: "bold" }}>
                                 Update At :{" "}
                               </span>

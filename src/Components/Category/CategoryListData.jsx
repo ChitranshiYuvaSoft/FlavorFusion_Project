@@ -156,14 +156,14 @@ import {
           <Typography
             sx={{
               color: "white",
-              fontSize: "1.6rem",
+              fontSize: "1.4rem",
               display: "flex",
               alignItems: "end",
               justifyContent: "start",
             }}
           >
             <HomeIcon
-              sx={{ color: "white", fontSize: "4rem", marginRight: "1rem" }}
+              sx={{ color: "white", fontSize: "3.5rem", marginRight: "1rem" }}
             />{" "}
             / Categories
           </Typography>
@@ -184,7 +184,7 @@ import {
               navigate("/category");
             }}
           >
-            <PlaylistAddIcon sx={{ fontSize: "3.4rem" }} />
+            <PlaylistAddIcon sx={{ fontSize: "3rem" }} />
           </Button>
         </Box>
         <Box
@@ -258,7 +258,7 @@ import {
                       <TableRow key={category._id}>
                         <TableCell
                           sx={{
-                            fontSize: "1.4rem",
+                            fontSize: "1.3rem",
                             color: "#b0bec5",
                             textAlign: "start",
                           }}
@@ -267,7 +267,7 @@ import {
                         </TableCell>
                         <TableCell
                           sx={{
-                            fontSize: "1.4rem",
+                            fontSize: "1.3rem",
                             color: "#b0bec5",
                             textAlign: "center",
                           }}
@@ -276,7 +276,7 @@ import {
                         </TableCell>
                         <TableCell
                           sx={{
-                            fontSize: "1.4rem",
+                            fontSize: "1.3rem",
                             textAlign: "center",
                             display: "flex",
                             alignItems: "center",
@@ -295,7 +295,7 @@ import {
                             <Button
                               variant="contained"
                               color="warning"
-                              sx={{ fontSize: "1.2rem", paddingBlock: "0.95rem" }}
+                              sx={{ fontSize: "1rem", paddingBlock: "0.7rem" }}
                               onClick={() => handleEditCategory(category)}
                             >
                               <EditIcon />
@@ -304,7 +304,7 @@ import {
                             <Button
                               variant="contained"
                               color="primary"
-                              sx={{ fontSize: "1.2rem" }}
+                              sx={{ fontSize: "1rem" }}
                               onClick={() => {
                                 navigate(`/category-details/${category._id}`);
                               }}

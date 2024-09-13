@@ -50,9 +50,9 @@ const UserList = () => {
       >
         <Toolbar>
           <Typography
-            variant="h3"
+            variant="h4"
             align="right"
-            sx={{ width: "38.5%", color: "white" }}
+            sx={{ width: "35.5%", color: "white" }}
           >
             User Dashboard
           </Typography>

@@ -43,16 +43,16 @@ const CategoryList = () => {
         sx={{
           ml: {
             width: "100%",
-            height: "8rem",
+            height: "6rem",
             backgroundColor: "#0c0a0a",
           },
         }}
       >
         <Toolbar>
           <Typography
-            variant="h3"
+            variant="h4"
             align="right"
-            sx={{ width: "42%", color: "white" }}
+            sx={{ width: "39.5%", color: "white" }}
           >
             Category Dashboard
           </Typography>

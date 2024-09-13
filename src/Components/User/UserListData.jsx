@@ -133,14 +133,14 @@ const UserListData = () => {
         <Typography
           sx={{
             color: "white",
-            fontSize: "1.6rem",
+            fontSize: "1.4rem",
             display: "flex",
             alignItems: "end",
             justifyContent: "start",
           }}
         >
           <HomeIcon
-            sx={{ color: "white", fontSize: "4rem", marginRight: "1rem" }}
+            sx={{ color: "white", fontSize: "3.6rem", marginRight: "1rem" }}
           />{" "}
           / User
         </Typography>
@@ -174,7 +174,7 @@ const UserListData = () => {
                 <TableRow>
                   <TableCell
                     sx={{
-                      width: "25%",
+                      width: "20%",
                       fontSize: "1.6rem",
                       fontWeight: "bold",
                       textAlign: "start",
@@ -185,7 +185,7 @@ const UserListData = () => {
                   </TableCell>
                   <TableCell
                     sx={{
-                      width: "25%",
+                      width: "20%",
                       fontSize: "1.6rem",
                       fontWeight: "bold",
                       textAlign: "center",
@@ -196,7 +196,7 @@ const UserListData = () => {
                   </TableCell>
                   <TableCell
                     sx={{
-                      width: "25%",
+                      width: "30%",
                       fontSize: "1.6rem",
                       fontWeight: "bold",
                       textAlign: "center",
@@ -207,7 +207,7 @@ const UserListData = () => {
                   </TableCell>
                   <TableCell
                     sx={{
-                      width: "25%",
+                      width: "30%",
                       fontSize: "1.6rem",
                       fontWeight: "bold",
                       textAlign: "center",
@@ -224,7 +224,7 @@ const UserListData = () => {
                   <TableRow key={user.id}>
                     <TableCell
                       sx={{
-                        fontSize: "1.4rem",
+                        fontSize: "1.3rem",
                         color: "#b0bec5",
                         textAlign: "start",
                       }}
@@ -233,7 +233,7 @@ const UserListData = () => {
                     </TableCell>
                     <TableCell
                       sx={{
-                        fontSize: "1.4rem",
+                        fontSize: "1.3rem",
                         color: "#b0bec5",
                         textAlign: "center",
                       }}
@@ -242,7 +242,7 @@ const UserListData = () => {
                     </TableCell>
                     <TableCell
                       sx={{
-                        fontSize: "1.4rem",
+                        fontSize: "1.3rem",
                         color: "#b0bec5",
                         textAlign: "center",
                       }}
@@ -252,7 +252,8 @@ const UserListData = () => {
 
                     <TableCell
                       sx={{
-                        fontSize: "1.4rem",
+                        width:"100%",
+                        fontSize: "1.rem",
                         textAlign: "center",
                         display: "flex",
                         alignItems: "center",
@@ -261,7 +262,7 @@ const UserListData = () => {
                     >
                       <Box
                         sx={{
-                          width: "90%",
+                          width: "100%",
                           height: "100%",
                           display: "flex",
                           alignItems: "center",
@@ -271,7 +272,7 @@ const UserListData = () => {
                         <Button
                           variant="contained"
                           color="warning"
-                          sx={{ fontSize: "1.2rem", paddingBlock: "0.95rem" }}
+                          sx={{ fontSize: "1.2rem", paddingBlock: "0.6rem" }}
                           onClick={() => handleUserUpdate(user)}
                         >
                           <EditIcon />
@@ -279,7 +280,7 @@ const UserListData = () => {
                         <Button
                           variant="contained"
                           color="error"
-                          sx={{ fontSize: "1.2rem", paddingBlock: "0.95rem" }}
+                          sx={{ fontSize: "1.2rem", paddingBlock: "0.6rem" }}
                           onClick={() => handleUserDelete(user.id)}
                         >
                           <DeleteIcon />
@@ -288,7 +289,7 @@ const UserListData = () => {
                         <Button
                           variant="contained"
                           color="primary"
-                          sx={{ fontSize: "1.2rem" }}
+                          sx={{ fontSize: "1rem" , paddingBlock: "0.6rem" }}
                           onClick={() => handleUserDetails(user.id)}
                         >
                           View Details

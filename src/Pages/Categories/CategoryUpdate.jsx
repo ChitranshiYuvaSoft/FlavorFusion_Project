@@ -107,16 +107,16 @@ const CategoryUpdate = () => {
         sx={{
           ml: {
             width: "100%",
-            height: "8rem",
+            height: "6rem",
             backgroundColor: "#0c0a0a",
           },
         }}
       >
         <Toolbar>
           <Typography
-            variant="h3"
+            variant="h4"
             align="right"
-            sx={{ width: "42.5%", color: "white" }}
+            sx={{ width: "40%", color: "white" }}
           >
             CATEGORY UPDATE
           </Typography>
@@ -195,7 +195,7 @@ const CategoryUpdate = () => {
               <Typography
                 sx={{
                   color: "white",
-                  fontSize: "1.6rem",
+                  fontSize: "1.4rem",
                   display: "flex",
                   alignItems: "end",
                   justifyContent: "start",
@@ -204,7 +204,7 @@ const CategoryUpdate = () => {
                 <HomeIcon
                   sx={{
                     color: "white",
-                    fontSize: "4rem",
+                    fontSize: "3.5rem",
                     marginRight: "1rem",
                   }}
                 />{" "}
@@ -247,7 +247,7 @@ const CategoryUpdate = () => {
                       <Paper
                         sx={{
                           width: "100%",
-                          height: "70%",
+                          height: "80%",
                           borderRadius: "0rem",
                           paddingBlock: "3rem",
                           paddingInline: "5rem",
@@ -270,7 +270,7 @@ const CategoryUpdate = () => {
                               },
                               "& .MuiInputBase-input": {
                                 color: "#424242",
-                                fontSize: "1.7rem",
+                                fontSize: "1.4rem",
                               },
                             }}
                             name="name"
@@ -294,7 +294,7 @@ const CategoryUpdate = () => {
                                 },
                               },
                               "& .MuiSelect-select": {
-                                fontSize: "1.6rem",
+                                fontSize: "1.4rem",
                                 color: "#424242",
                               },
                             }}
@@ -304,13 +304,13 @@ const CategoryUpdate = () => {
                           >
                             <MenuItem
                               value={true}
-                              sx={{ fontSize: "1.6rem", color: "#424242" }}
+                              sx={{ fontSize: "1.4rem", color: "#424242" }}
                             >
                               Active
                             </MenuItem>
                             <MenuItem
                               value={false}
-                              sx={{ fontSize: "1.6rem", color: "#424242" }}
+                              sx={{ fontSize: "1.4rem", color: "#424242" }}
                             >
                               Inactive
                             </MenuItem>

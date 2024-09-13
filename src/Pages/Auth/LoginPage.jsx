@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -20,6 +20,7 @@ import * as yup from "yup";
 import { useFormik } from "formik";
 import Navbar from "../../Components/Navbar/Navbar";
 import { GoogleLogin } from "@react-oauth/google";
+import ForgotPassword from "../../Components/Login/ForgotPassword";
 
 // Use Yup Validation On Login Form
 const validationSchema = yup.object({
@@ -76,6 +77,18 @@ const LoginPage = () => {
     alert("Error With Google Login");
   };
 
+  // Forgot Password
+
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <>
       <Navbar />
@@ -91,14 +104,14 @@ const LoginPage = () => {
                 sx={{ paddingBlock: "1.5rem", paddingInline: "1rem" }}
               >
                 <form
-                  style={{ width: "100%", height: "90%" }}
+                  style={{ width: "100%", height: "85%" }}
                   action=""
                   onSubmit={formik.handleSubmit}
                 >
                   <CardContent
                     sx={{
                       width: "100%",
-                      height: "68%",
+                      height: "60%",
                       display: "flex",
                       alignItems: "start",
                       justifyContent: "space-around",
@@ -214,7 +227,7 @@ const LoginPage = () => {
                   <CardActions
                     sx={{
                       width: "100%",
-                      height: "32%",
+                      height: "40%",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "space-around",
@@ -251,12 +264,27 @@ const LoginPage = () => {
                   </CardActions>
                 </form>
 
-                <Box sx={{ width: "100%", height: "10%" }}>
+                <Box
+                  sx={{
+                    width: "100%",
+                    height: "15%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-around",
+                    flexDirection: "column",
+                  }}
+                >
                   <Typography align="center" variant="h6">
                     You have already account{" "}
                     <Link to={"/register"} className="link">
                       Register
                     </Link>
+                  </Typography>
+                  <Typography align="center" variant="h6">
+                    <Link to={""} className="link" onClick={handleClickOpen}>
+                      Forgot Password
+                    </Link>
+                    <ForgotPassword open={open} handleClose={handleClose} />
                   </Typography>
                 </Box>
               </Card>
