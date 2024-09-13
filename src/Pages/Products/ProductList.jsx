@@ -43,16 +43,16 @@ const ProductList = () => {
         sx={{
           ml: {
             width: "100%",
-            height: "8rem",
+            height: "6rem",
             backgroundColor: "#0c0a0a",
           },
         }}
       >
         <Toolbar>
           <Typography
-            variant="h3"
+            variant="h4"
             align="right"
-            sx={{ width: "40%", color: "white" }}
+            sx={{ width: "38%", color: "white" }}
           >
             Product Dashboard
           </Typography>
@@ -98,16 +98,13 @@ const ProductList = () => {
         component="main"
         sx={{
           flexGrow: 1,
-
           width: "100%",
-
           height: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           borderLeft: "none",
           boxShadow: "none",
-          backgroundColor: "#0c0a0a",
         }}
       >
         <Box
@@ -115,15 +112,13 @@ const ProductList = () => {
             width: "100%",
             height: "100%",
             display: "flex",
-
             flexDirection: "column",
-
             alignItems: "center",
             justifyContent: "center",
           }}
         >
-          <Box sx={{ width: "100%", height: "100%", paddingInline: "2rem" }}>
-            <ProductListData/>
+          <Box sx={{ width: "100%", height: "100%", paddingInline: "3rem" }}>
+            <ProductListData />
           </Box>
         </Box>
       </Box>

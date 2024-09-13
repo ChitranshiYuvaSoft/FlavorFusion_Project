@@ -1,5 +1,5 @@
 import axios from "axios";
-import axiosInstance from "../Interceptors/axiosInterceptors";
+import axiosInstance from "../Services/axiosServiceHandler";
 
 const allCategories = async () => {
   const response = await axiosInstance.get(

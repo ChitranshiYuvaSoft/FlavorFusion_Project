@@ -1,9 +1,8 @@
-import axiosInstance from "../Interceptors/axiosInterceptors";
+import axiosInstance from "../Services/axiosServiceHandler";
 
 const allProducts = async() => {
     const response = await axiosInstance.get("/product?pageNumber=1&pageSize=10");
-    console.log(response.data);
-    return await response.data;
+    return await response.data.data;
 }
 
 const productServices = {

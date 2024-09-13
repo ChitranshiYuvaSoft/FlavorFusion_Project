@@ -7,9 +7,7 @@ import {
   CssBaseline,
   Drawer,
   IconButton,
-  MenuItem,
   Paper,
-  Select,
   TextField,
   Toolbar,
   Typography,
@@ -21,14 +19,12 @@ import { useDispatch, useSelector } from "react-redux";
 import CircularLoader from "../../Components/Loading/CircularLoader";
 import { useNavigate } from "react-router-dom";
 import BackBtn from "../../Components/Button/BackBtn";
-import { toast } from "react-toastify";
-import { boolean } from "yup";
 import { updateUser } from "../../Redux/auth/authSlice";
 
 const UserUpdate = () => {
   // State Get From Slice
-  const { isLoading, edit } = useSelector((state) => state.auth);
-
+  const { isLoading, edit, message } = useSelector((state) => state.auth);
+console.log(message, "data save")
   // Hook Call
   const navigate = useNavigate();
   const dispatch = useDispatch();

@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import { Box, Button, Card, Typography } from "@mui/material";
+import React from "react";
+import { Box, Card, Typography } from "@mui/material";
 import Navbar from "../../Components/Navbar/Navbar";
-import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import CountdownRedirect from "../../CountDown/CountDown";
+
 const HomePage = () => {
   return (
     <>
@@ -12,12 +12,13 @@ const HomePage = () => {
           <Card
             sx={{
               backgroundColor: "transparent",
-              width: "60%",
-              height: "60%",
+              width: "80%",
+              height: "40%",
               display: "flex",
               alignItems: "center",
               justifyContent: "space-around",
               flexDirection: "column",
+              boxShadow: "none",
             }}
           >
             <Typography variant="h2" sx={{ color: "white" }}>
@@ -33,45 +34,12 @@ const HomePage = () => {
                 flexDirection: "column",
               }}
             >
-              <Link
-                to="/login"
-                style={{
-                  paddingBlock: "1rem",
-                  fontSize: "1.4rem",
-                  width: "100%",
-                }}
-              >
-                <Button
-                  variant="contained"
-                  color="info"
-                  fullWidth
-                  sx={{ paddingBlock: "1rem", fontSize: "1.4rem" }}
-                >
-                  Login
-                </Button>
-              </Link>
-
-              <Link
-                to="/register"
-                style={{
-                  paddingBlock: "1rem",
-                  fontSize: "1.4rem",
-                  width: "100%",
-                }}
-              >
-                <Button
-                  variant="contained"
-                  color="info"
-                  fullWidth
-                  sx={{ paddingBlock: "1rem", fontSize: "1.4rem" }}
-                >
-                  Register
-                </Button>
-              </Link>
+              <div class="custom-loader"></div>
             </Box>
           </Card>
         </Box>
       </Box>
+      <CountdownRedirect seconds={5} targetUrl="/login" />
     </>
   );
 };

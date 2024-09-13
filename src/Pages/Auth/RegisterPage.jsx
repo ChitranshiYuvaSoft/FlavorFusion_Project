@@ -37,9 +37,9 @@ const validationSchema = yup.object({
 
 const RegisterPage = () => {
   const navigate = useNavigate();
-  const { registerUser,  isSuccess, isError, message, isLoading } =
-    useSelector((state) => state.auth);
-
+  const { registerUser, isSuccess, isError, message, isLoading } = useSelector(
+    (state) => state.auth
+  );
 
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = React.useState(false);
@@ -51,9 +51,9 @@ const RegisterPage = () => {
   };
 
   const CustomLabel = styled("label")(({ theme }) => ({
-    fontSize: "1.5rem",
+    fontSize: "1.3rem",
     color: "white",
-    letterSpacing: ".2rem",
+    letterSpacing: ".1rem",
   }));
 
   // Formik Form In Material UI
@@ -65,7 +65,7 @@ const RegisterPage = () => {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      dispatch(registerUsers(values));                                
+      dispatch(registerUsers(values));
     },
   });
 
@@ -79,7 +79,7 @@ const RegisterPage = () => {
 
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <Box className="register-page">
         <Box className="left-register"></Box>
         <Box className="right-register">
@@ -99,7 +99,7 @@ const RegisterPage = () => {
                   <CardContent
                     sx={{
                       width: "100%",
-                      height: "68%",
+                      height: "75%",
                       display: "flex",
                       alignItems: "start",
                       justifyContent: "space-around",
@@ -136,7 +136,7 @@ const RegisterPage = () => {
                         sx={{
                           "& .MuiInputBase-input": {
                             color: "white",
-                            fontSize: "1.5rem", 
+                            fontSize: "1.3rem",
                           },
                         }}
                         name="name"
@@ -154,7 +154,6 @@ const RegisterPage = () => {
                         width: "100%",
                         display: "flex",
                         alignItems: "flex-end",
-                        // marginTop: "2rem",
                       }}
                     >
                       <AttachEmailIcon
@@ -172,7 +171,7 @@ const RegisterPage = () => {
                         sx={{
                           "& .MuiInputBase-input": {
                             color: "white",
-                            fontSize: "1.5rem",
+                            fontSize: "1.3rem",
                           },
                         }}
                         name="email"
@@ -192,7 +191,6 @@ const RegisterPage = () => {
                         display: "flex",
                         alignItems: "flex-center",
                         justifyContent: "center",
-                        // marginTop: "2rem",
                       }}
                     >
                       {showPassword ? (
@@ -224,8 +222,6 @@ const RegisterPage = () => {
                         variant="standard"
                         fullWidth
                         sx={{
-                          color: "white",
-                          fontSize: "60rem",
                           "& .MuiOutlinedInput-root": {
                             "&:hover .MuiOutlinedInput-notchedOutline": {
                               borderColor: "green",
@@ -233,7 +229,7 @@ const RegisterPage = () => {
                           },
                           "& .MuiInputBase-input": {
                             color: "white",
-                            fontSize: "1.4rem",
+                            fontSize: "1.3rem",
                           },
                         }}
                         name="password"
@@ -253,7 +249,7 @@ const RegisterPage = () => {
                   <CardActions
                     sx={{
                       width: "100%",
-                      height: "32%",
+                      height: "25%",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "space-around",
@@ -266,7 +262,7 @@ const RegisterPage = () => {
                       fullWidth
                       sx={{
                         paddingBlock: "0.7rem",
-                        fontSize: "1.4rem",
+                        fontSize: "1.3rem",
                         backgroundColor: "#D4AF37",
                         color: "black",
                         fontWeight: "bold",
@@ -274,33 +270,14 @@ const RegisterPage = () => {
                           backgroundColor: "#0c0a0a",
                           color: "white",
                         },
+                        borderRadius:"0rem"
                       }}
                       type="submit"
                     >
                       Register
                     </Button>
-                    {/* <Button
-                      size="small"
-                      variant="contained"
-                      fullWidth
-                      sx={{
-                        marginLeft: "0rem !important",
-                        paddingBlock: "0.7rem",
-                        fontSize: "1.4rem",
-                        backgroundColor: "#fff",
-                        color: "black",
-                        fontWeight: "bold",
-                        "&:hover": {
-                          backgroundColor: "#0c0a0a",
-                          color: "white",
-                        },
-                      }}
-                    >
-                      Sign Up With Google
-                    </Button> */}
                   </CardActions>
                 </form>
-
                 <Box sx={{ width: "100%", height: "10%" }}>
                   <Typography align="center" variant="h6">
                     You have already account{" "}

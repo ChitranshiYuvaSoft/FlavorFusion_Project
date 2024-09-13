@@ -12,7 +12,26 @@ const productSlice = createSlice({
     message: "",
   },
   reducers: {},
-  extraReducers: (builder) => {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(getAllProducts.pending, (state) => {
+        state.isLoading = true;
+        state.isSuccess = false;
+        state.isError = false;
+      })
+      .addCase(getAllProducts.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.allProducts = action.payload;
+        state.isError = false;
+      })
+      .addCase(getAllProducts.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = false;
+        state.isError = true;
+        state.message = action.payload;
+      });
+  },
 });
 
 export const getAllProducts = createAsyncThunk(
@@ -21,9 +40,8 @@ export const getAllProducts = createAsyncThunk(
     try {
       return await productServices.allProducts();
     } catch (error) {
-      console.log(error.message);
-      //     const message = error.response.data.message;
-      //   return thunkAPI.rejectWithValue(message);
+      const message = error.response.data.message;
+      return thunkAPI.rejectWithValue(message);
     }
   }
 );

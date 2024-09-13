@@ -120,7 +120,6 @@ const CategoryList = () => {
         >
           <Box sx={{ width: "100%", height: "100%", paddingInline: "3rem" }}>
             <CategoryListData />
-
           </Box>
         </Box>
       </Box>

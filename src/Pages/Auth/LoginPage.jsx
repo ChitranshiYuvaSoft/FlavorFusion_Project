@@ -19,8 +19,9 @@ import { googleLogin, loginUser } from "../../Redux/auth/authSlice";
 import * as yup from "yup";
 import { useFormik } from "formik";
 import Navbar from "../../Components/Navbar/Navbar";
-import { GoogleLogin } from "@react-oauth/google";
+
 import ForgotPassword from "../../Components/Login/ForgotPassword";
+import { GoogleLogin } from "@react-oauth/google";
 
 // Use Yup Validation On Login Form
 const validationSchema = yup.object({
@@ -78,13 +79,10 @@ const LoginPage = () => {
   };
 
   // Forgot Password
-
   const [open, setOpen] = useState(false);
-
   const handleClickOpen = () => {
     setOpen(true);
   };
-
   const handleClose = () => {
     setOpen(false);
   };
@@ -101,7 +99,7 @@ const LoginPage = () => {
             <>
               <Card
                 className="login-card"
-                sx={{ paddingBlock: "1.5rem", paddingInline: "1rem" }}
+                sx={{borderRadius:"0rem", paddingBlock: "1.5rem", paddingInline: "1rem" }}
               >
                 <form
                   style={{ width: "100%", height: "85%" }}
@@ -111,7 +109,7 @@ const LoginPage = () => {
                   <CardContent
                     sx={{
                       width: "100%",
-                      height: "60%",
+                      height: "58%",
                       display: "flex",
                       alignItems: "start",
                       justifyContent: "space-around",
@@ -149,7 +147,7 @@ const LoginPage = () => {
                         sx={{
                           "& .MuiInputBase-input": {
                             color: "white",
-                            fontSize: "1.5rem",
+                            fontSize: "1.4rem",
                           },
                         }}
                         name="email"
@@ -177,7 +175,7 @@ const LoginPage = () => {
                           onMouseDown={handleMouseDownPassword}
                           sx={{
                             color: "white",
-                            mr: "1.5rem",
+                            mr: "1.3rem",
                             my: 0.5,
                             fontSize: "3rem",
                           }}
@@ -207,7 +205,7 @@ const LoginPage = () => {
                           },
                           "& .MuiInputBase-input": {
                             color: "white",
-                            fontSize: "1.4rem",
+                            fontSize: "1.3rem",
                           },
                         }}
                         name="password"
@@ -227,7 +225,7 @@ const LoginPage = () => {
                   <CardActions
                     sx={{
                       width: "100%",
-                      height: "40%",
+                      height: "35%",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "space-around",
@@ -240,7 +238,7 @@ const LoginPage = () => {
                       fullWidth
                       sx={{
                         paddingBlock: "0.7rem",
-                        fontSize: "1.4rem",
+                        fontSize: "1.3rem",
                         backgroundColor: "#D4AF37",
                         color: "black",
                         fontWeight: "bold",
@@ -248,6 +246,7 @@ const LoginPage = () => {
                           backgroundColor: "#0c0a0a",
                           color: "white",
                         },
+                        borderRadius:"0rem"
                       }}
                       type="submit"
                     >
@@ -267,7 +266,7 @@ const LoginPage = () => {
                 <Box
                   sx={{
                     width: "100%",
-                    height: "15%",
+                    height: "8%",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-around",

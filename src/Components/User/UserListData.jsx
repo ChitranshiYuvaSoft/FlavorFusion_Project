@@ -114,7 +114,7 @@ const UserListData = () => {
   };
 
   const handleUserUpdate = (user) => {
-    console.log(user)
+    console.log(user);
     dispatch(editUser(user));
     navigate(`/user-update/${user.id}`);
   };
@@ -252,7 +252,7 @@ const UserListData = () => {
 
                     <TableCell
                       sx={{
-                        width:"100%",
+                        width: "100%",
                         fontSize: "1.rem",
                         textAlign: "center",
                         display: "flex",
@@ -288,8 +288,15 @@ const UserListData = () => {
 
                         <Button
                           variant="contained"
-                          color="primary"
-                          sx={{ fontSize: "1rem" , paddingBlock: "0.6rem" }}
+                          sx={{
+                            fontSize: "1rem",
+                            paddingBlock: "0.6rem",
+                            backgroundColor: "#2e7d32",
+                            "&:hover": {
+                              backgroundColor: "#1b5e20",
+                              color: "white",
+                            },
+                          }}
                           onClick={() => handleUserDetails(user.id)}
                         >
                           View Details
