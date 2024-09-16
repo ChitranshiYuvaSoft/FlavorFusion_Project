@@ -8,22 +8,14 @@ import {
   TableHead,
   TablePagination,
   TableRow,
-  Typography,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import HomeIcon from "@mui/icons-material/Home";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  deleteUser,
-  editUser,
-  getAllUser,
-  userDetails,
-} from "../../Redux/auth/authSlice";
+import { deleteUser, editUser, getAllUser } from "../../Redux/auth/authSlice";
 import EditIcon from "@mui/icons-material/Edit";
-import { toast } from "react-toastify";
 import CircularLoader from "../Loading/CircularLoader";
-import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useNavigate } from "react-router-dom";
 
@@ -31,10 +23,12 @@ const StyledTablePagination = styled(TablePagination)(({ theme }) => ({
   "& .css-levciy-MuiTablePagination-displayedRows": {
     fontSize: "1.6rem",
     color: "white",
+    fontFamily: "Philosopher, sans-serif",
   },
   "& .MuiTablePagination-selectLabel": {
     fontSize: "1.6rem",
     color: "white",
+    fontFamily: "Philosopher, sans-serif",
   },
   "& .MuiTablePagination-select": {
     fontSize: "1.6rem",
@@ -43,22 +37,27 @@ const StyledTablePagination = styled(TablePagination)(({ theme }) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    fontFamily: "Philosopher, sans-serif",
   },
   "& .css-i4bv87-MuiSvgIcon-root": {
     fontSize: "2.2rem",
     color: "white",
+    fontFamily: "Philosopher, sans-serif",
   },
   "& .MuiTablePagination-selectIcon": {
     fontSize: "1.6rem",
     color: "white",
+    fontFamily: "Philosopher, sans-serif",
   },
   "& .MuiTablePagination-spacer": {
     fontSize: "1.6rem",
     color: "white",
+    fontFamily: "Philosopher, sans-serif",
   },
   "& .MuiTablePagination-actions": {
     fontSize: "1.6rem",
     color: "white",
+    fontFamily: "Philosopher, sans-serif",
   },
 }));
 
@@ -77,20 +76,12 @@ const UserListData = () => {
   // Delete User
   const handleUserDelete = (id) => {
     dispatch(deleteUser(id, user.token));
-    toast.success("User Successfully Deleted!!");
   };
 
   // Get All Users
   useEffect(() => {
     dispatch(getAllUser(user.token));
   }, [dispatch, user.token]);
-
-  // Edit User
-  const handleUserEdit = (user) => {
-    alert("Edit Mode");
-    setOpen(true);
-    dispatch(editUserReducer(user));
-  };
 
   // Pagination
   const [page, setPage] = useState(0);
@@ -130,20 +121,21 @@ const UserListData = () => {
           justifyContent: "space-between",
         }}
       >
-        <Typography
-          sx={{
+        <p
+          style={{
             color: "white",
             fontSize: "1.4rem",
             display: "flex",
             alignItems: "end",
             justifyContent: "start",
+            fontFamily: "Philosopher, sans-serif",
           }}
         >
           <HomeIcon
             sx={{ color: "white", fontSize: "3.6rem", marginRight: "1rem" }}
           />{" "}
           / User
-        </Typography>
+        </p>
       </Box>
       <Box
         sx={{
@@ -160,6 +152,7 @@ const UserListData = () => {
               width: "100%",
               height: "85%",
               minWidth: 700,
+              fontFamily: "Philosopher, sans-serif",
             }}
           >
             <Table
@@ -179,6 +172,7 @@ const UserListData = () => {
                       fontWeight: "bold",
                       textAlign: "start",
                       color: "white",
+                      fontFamily: "Philosopher, sans-serif",
                     }}
                   >
                     Id
@@ -190,6 +184,7 @@ const UserListData = () => {
                       fontWeight: "bold",
                       textAlign: "center",
                       color: "white",
+                      fontFamily: "Philosopher, sans-serif",
                     }}
                   >
                     Name
@@ -201,6 +196,7 @@ const UserListData = () => {
                       fontWeight: "bold",
                       textAlign: "center",
                       color: "white",
+                      fontFamily: "Philosopher, sans-serif",
                     }}
                   >
                     Email
@@ -212,6 +208,7 @@ const UserListData = () => {
                       fontWeight: "bold",
                       textAlign: "center",
                       color: "white",
+                      fontFamily: "Philosopher, sans-serif",
                     }}
                   >
                     Action
@@ -227,6 +224,7 @@ const UserListData = () => {
                         fontSize: "1.3rem",
                         color: "#b0bec5",
                         textAlign: "start",
+                        fontFamily: "Philosopher, sans-serif",
                       }}
                     >
                       {user.id}
@@ -236,6 +234,7 @@ const UserListData = () => {
                         fontSize: "1.3rem",
                         color: "#b0bec5",
                         textAlign: "center",
+                        fontFamily: "Philosopher, sans-serif",
                       }}
                     >
                       {user.name}
@@ -245,6 +244,7 @@ const UserListData = () => {
                         fontSize: "1.3rem",
                         color: "#b0bec5",
                         textAlign: "center",
+                        fontFamily: "Philosopher, sans-serif",
                       }}
                     >
                       {user.email}
@@ -272,7 +272,11 @@ const UserListData = () => {
                         <Button
                           variant="contained"
                           color="warning"
-                          sx={{ fontSize: "1.2rem", paddingBlock: "0.6rem" }}
+                          sx={{
+                            fontSize: "1.2rem",
+                            paddingBlock: "0.6rem",
+                            fontFamily: "Philosopher, sans-serif",
+                          }}
                           onClick={() => handleUserUpdate(user)}
                         >
                           <EditIcon />
@@ -280,7 +284,11 @@ const UserListData = () => {
                         <Button
                           variant="contained"
                           color="error"
-                          sx={{ fontSize: "1.2rem", paddingBlock: "0.6rem" }}
+                          sx={{
+                            fontSize: "1.2rem",
+                            paddingBlock: "0.6rem",
+                            fontFamily: "Philosopher, sans-serif",
+                          }}
                           onClick={() => handleUserDelete(user.id)}
                         >
                           <DeleteIcon />
@@ -292,6 +300,7 @@ const UserListData = () => {
                             fontSize: "1rem",
                             paddingBlock: "0.6rem",
                             backgroundColor: "#2e7d32",
+                            fontFamily: "Philosopher, sans-serif",
                             "&:hover": {
                               backgroundColor: "#1b5e20",
                               color: "white",

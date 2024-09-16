@@ -62,6 +62,7 @@ const Sidebar = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
+            fontFamily: "Philosopher, sans-serif",
           }}
         >
           <Box
@@ -89,6 +90,7 @@ const Sidebar = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "start",
+              fontFamily: "Philosopher, sans-serif",
             }}
           >
             <Typography
@@ -96,12 +98,13 @@ const Sidebar = () => {
               sx={{
                 fontWeight: "bold",
                 color: "#B1BDC7",
+                fontFamily: "Philosopher, sans-serif",
               }}
             >
               {user.name}
-              <Typography variant="h6" sx={{ color: "#B1BDC7" }}>
+              <p variant="h6" sx={{ color: "#B1BDC7" }}>
                 <span style={{ fontWeight: "550" }}></span> {user.email}
-              </Typography>
+              </p>
             </Typography>
           </Box>
         </List>
@@ -109,7 +112,7 @@ const Sidebar = () => {
           <ListItem onClick={() => navigate("/product-dashboard")}>
             <ListItemText
               primary={
-                <Typography sx={{ color: "white", fontSize: "1.3rem" }}>
+                <Typography sx={{ color: "white", fontSize: "1.3rem", fontFamily: "Philosopher, sans-serif", }}>
                   Products
                 </Typography>
               }
@@ -123,7 +126,7 @@ const Sidebar = () => {
           <ListItem onClick={() => navigate("/user-dashboard")}>
             <ListItemText
               primary={
-                <Typography sx={{ color: "white", fontSize: "1.3rem" }}>
+                <Typography sx={{ color: "white", fontSize: "1.3rem",fontFamily: "Philosopher, sans-serif", }}>
                   Users
                 </Typography>
               }
@@ -137,7 +140,7 @@ const Sidebar = () => {
           <ListItem onClick={() => navigate("/category-dashboard")}>
             <ListItemText
               primary={
-                <Typography sx={{ color: "white", fontSize: "1.3rem" }}>
+                <Typography sx={{ color: "white", fontSize: "1.3rem", fontFamily: "Philosopher, sans-serif", }}>
                   Categories
                 </Typography>
               }
@@ -159,6 +162,7 @@ const Sidebar = () => {
             fontWeight: "bold",
             color: "black",
             backgroundColor: "#D4AF37",
+            fontFamily: "Philosopher, sans-serif",
             "&:hover": {
               backgroundColor: "#b0bec5",
               color: "#0c0a0a",

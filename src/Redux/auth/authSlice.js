@@ -19,6 +19,7 @@ const initialState = {
   isSuccess: false,
   message: "",
   userToken: "",
+  updateStatus: "",
 };
 
 const authSlice = createSlice({
@@ -128,6 +129,7 @@ const authSlice = createSlice({
         state.isError = false;
         state.isSuccess = true;
         state.allUsers = action.payload;
+        state.updateStatus = "";
       })
       .addCase(getAllUser.rejected, (state, action) => {
         state.isLoading = false;
@@ -180,13 +182,16 @@ const authSlice = createSlice({
         state.isSuccess = false;
       })
       .addCase(updateUser.fulfilled, (state, action) => {
-        console.log(action.payload.message, "update Slice");
+        console.log(action.payload.status, "update Slice");
         state.isLoading = false;
         state.isError = false;
         state.isSuccess = true;
         state.allUsers = state.allUsers.map((item) =>
-          item.id === action.payload.id ? action.payload : item
+          item.id === action.payload.data.data.id
+            ? action.payload.data.data
+            : item
         );
+        state.updateStatus = action.payload.status;
         state.edit = { user: {}, isEdit: false };
       })
       .addCase(updateUser.rejected, (state, action) => {

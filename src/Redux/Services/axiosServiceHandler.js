@@ -9,7 +9,6 @@ const axiosInstance = axios.create({
 axiosInstance.interceptors.request.use(
   (config) => {
       const token = localStorage.getItem('token')
-      // console.log(token, "Interceptores");
       if (token) {
           config.headers.Authorization = `Bearer ${token}`;
       }
@@ -21,7 +20,10 @@ axiosInstance.interceptors.request.use(
 );
 
 axiosInstance.interceptors.response.use(
-  (response) => response,
+  (response) => {
+    toast.success(response.data.message);
+    return response;
+  },
   (error) => {
     if(error){
       console.log(error, "InterCeptors")

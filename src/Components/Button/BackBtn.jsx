@@ -12,7 +12,7 @@ const BackBtn = ({ Location }) => {
         minWidth: 700,
         display: "flex",
         alignItems: "center",
-        backgroundColor: "#424242",
+        backgroundColor: "#0c0a0a",
         justifyContent: "start",
       }}
     >
@@ -23,11 +23,12 @@ const BackBtn = ({ Location }) => {
             borderRadius: "0rem",
             marginLeft: "1rem",
             fontSize: "1.5rem",
-            backgroundColor: "#D4AF37",
             color: "black",
+            backgroundColor: "#D4AF37",
+            fontFamily: "Philosopher, sans-serif",
             "&:hover": {
-              backgroundColor: "#0c0a0a",
-              color: "white",
+              backgroundColor: "#b0bec5",
+              color: "#0c0a0a",
             },
           }}
         >

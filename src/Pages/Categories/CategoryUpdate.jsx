@@ -116,7 +116,7 @@ const CategoryUpdate = () => {
           <Typography
             variant="h4"
             align="right"
-            sx={{ width: "40%", color: "white" }}
+            sx={{ width: "40%", color: "white" , fontFamily: "Philosopher, sans-serif",}}
           >
             CATEGORY UPDATE
           </Typography>
@@ -199,6 +199,7 @@ const CategoryUpdate = () => {
                   display: "flex",
                   alignItems: "end",
                   justifyContent: "start",
+                  fontFamily: "Philosopher, sans-serif",
                 }}
               >
                 <HomeIcon
@@ -263,6 +264,7 @@ const CategoryUpdate = () => {
                             fullWidth
                             required
                             sx={{
+                              fontFamily: "Philosopher, sans-serif",
                               "& .MuiOutlinedInput-root": {
                                 "&:hover .MuiOutlinedInput-notchedOutline": {
                                   borderColor: "#212121",
@@ -282,6 +284,7 @@ const CategoryUpdate = () => {
                             required
                             sx={{
                               color: "#424242",
+                              fontFamily: "Philosopher, sans-serif",
                               "& .MuiOutlinedInput-root": {
                                 "& fieldset": {
                                   borderColor: "#424242",
@@ -304,13 +307,13 @@ const CategoryUpdate = () => {
                           >
                             <MenuItem
                               value={true}
-                              sx={{ fontSize: "1.4rem", color: "#424242" }}
+                              sx={{ fontSize: "1.4rem", color: "#424242", fontFamily: "Philosopher, sans-serif", }}
                             >
                               Active
                             </MenuItem>
                             <MenuItem
                               value={false}
-                              sx={{ fontSize: "1.4rem", color: "#424242" }}
+                              sx={{ fontSize: "1.4rem", color: "#424242", fontFamily: "Philosopher, sans-serif", }}
                             >
                               Inactive
                             </MenuItem>
@@ -323,6 +326,7 @@ const CategoryUpdate = () => {
                               paddingBlock: "1rem",
                               fontSize: "1.4rem",
                               backgroundColor: "#D4AF37",
+                              fontFamily: "Philosopher, sans-serif",
                               color: "black",
                               fontWeight: "bold",
                               "&:hover": {

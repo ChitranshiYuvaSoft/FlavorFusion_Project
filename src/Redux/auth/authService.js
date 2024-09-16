@@ -60,8 +60,8 @@ const updatedUser = async (userData) => {
     email : userData.email,
     password :userData.password
   });
-  console.log(response, "From response Service");
-  return response.data;
+  // console.log(response, "From response Service");
+  return response;
 };
 
 // Forgot Password

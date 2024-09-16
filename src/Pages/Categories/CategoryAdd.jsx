@@ -121,7 +121,7 @@ const CategoryAdd = () => {
           <Typography
             variant="h4"
             align="right"
-            sx={{ width: "37%", color: "white" }}
+            sx={{ width: "37%", color: "white", fontFamily: "Philosopher, sans-serif", }}
           >
             CATEGORY ADD
           </Typography>
@@ -204,6 +204,7 @@ const CategoryAdd = () => {
                   display: "flex",
                   alignItems: "end",
                   justifyContent: "start",
+                  fontFamily: "Philosopher, sans-serif",
                 }}
               >
                 <HomeIcon
@@ -286,6 +287,7 @@ const CategoryAdd = () => {
                               "& .MuiInputBase-input": {
                                 color: "#424242",
                                 fontSize: "1.4rem",
+                                fontFamily: "Philosopher, sans-serif",
                               },
                             }}
                             // name="name"
@@ -307,6 +309,7 @@ const CategoryAdd = () => {
                             required
                             sx={{
                               color: "#424242",
+                              fontFamily: "Philosopher, sans-serif",
                               "& .MuiOutlinedInput-root": {
                                 "& fieldset": {
                                   borderColor: "#424242",
@@ -320,6 +323,7 @@ const CategoryAdd = () => {
                               },
                               "& .MuiSelect-select": {
                                 fontSize: "1.4rem",
+                                fontFamily: "Philosopher, sans-serif",
                                 color: "#424242",
                               },
                             }}
@@ -340,13 +344,13 @@ const CategoryAdd = () => {
                           >
                             <MenuItem
                               value={true}
-                              sx={{ fontSize: "1.4rem", color: "#424242" }}
+                              sx={{ fontSize: "1.4rem", color: "#424242", fontFamily: "Philosopher, sans-serif", }}
                             >
                               Active
                             </MenuItem>
                             <MenuItem
                               value={false}
-                              sx={{ fontSize: "1.4rem", color: "#424242" }}
+                              sx={{ fontSize: "1.4rem", color: "#424242", fontFamily: "Philosopher, sans-serif", }}
                             >
                               Inactive
                             </MenuItem>
@@ -359,6 +363,7 @@ const CategoryAdd = () => {
                               paddingBlock: "1rem",
                               fontSize: "1.4rem",
                               backgroundColor: "#D4AF37",
+                              fontFamily: "Philosopher, sans-serif",
                               color: "black",
                               fontWeight: "bold",
                               "&:hover": {

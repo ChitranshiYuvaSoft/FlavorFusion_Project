@@ -41,7 +41,7 @@ const Navbar = () => {
       onKeyDown={toggleDrawer(false)}
     >
       <Box>
-        <Typography
+        <p
           variant="h4"
           sx={{
             width: "100%",
@@ -51,10 +51,11 @@ const Navbar = () => {
             alignItems: "center",
             justifyContent: "start",
             marginLeft: "3rem",
+            fontFamily: "Philosopher, sans-serif",
           }}
         >
           <span style={{ color: "#D4AF37" }}>Flavor</span>Fusion
-        </Typography>
+        </p>
       </Box>
       <List>
         <ListItem to="/register">
@@ -83,20 +84,20 @@ const Navbar = () => {
               <MenuIcon sx={{ fontSize: "2rem", color: "white" }} />
             </IconButton>
           )}
-          <Typography
-            variant="h4"
+          <p
             component="div"
             onClick={() => navigate("/")}
-            sx={{ flexGrow: 1, fontWeight: "900", cursor: "pointer" }}
+            style={{ flexGrow: 1, fontWeight: "900", cursor: "pointer", fontFamily: "Philosopher, sans-serif", fontSize:"3rem" }}
           >
             <span style={{ color: "#D4AF37" }}>Flavor</span>Fusion
-          </Typography>
+          </p>
           <Box
             sx={{
               display: { xs: "none", sm: "flex" },
               width: "auto",
               alignItems: "center",
               justifyContent: "space-around",
+              fontFamily: "Philosopher, sans-serif",
             }}
           ></Box>
         </Toolbar>

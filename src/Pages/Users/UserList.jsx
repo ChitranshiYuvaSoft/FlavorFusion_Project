@@ -52,7 +52,7 @@ const UserList = () => {
           <Typography
             variant="h4"
             align="right"
-            sx={{ width: "35.5%", color: "white" }}
+            sx={{ width: "35.5%", color: "white", fontFamily: "Philosopher, sans-serif", }}
           >
             User Dashboard
           </Typography>

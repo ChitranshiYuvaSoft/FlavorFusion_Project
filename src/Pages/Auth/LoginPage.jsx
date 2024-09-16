@@ -116,14 +116,15 @@ const LoginPage = () => {
                       flexDirection: "column",
                     }}
                   >
-                    <Typography
-                      sx={{ letterSpacing: 3 }}
-                      color="white"
-                      gutterBottom
-                      variant="h4"
+                    <p
+                      style={{ letterSpacing: 3,
+                        color:"white",
+                        fontSize:"2.5vh",
+                        fontWeight:"500"
+                       }}
                     >
-                      Sing In
-                    </Typography>
+                      Sign In
+                    </p>
 
                     <Box
                       sx={{

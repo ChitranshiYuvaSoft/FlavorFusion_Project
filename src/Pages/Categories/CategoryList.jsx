@@ -52,7 +52,7 @@ const CategoryList = () => {
           <Typography
             variant="h4"
             align="right"
-            sx={{ width: "39.5%", color: "white" }}
+            sx={{ width: "39.5%", color: "white", fontFamily: "Philosopher, sans-serif", }}
           >
             Category Dashboard
           </Typography>

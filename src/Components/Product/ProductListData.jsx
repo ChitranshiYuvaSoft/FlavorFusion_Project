@@ -32,10 +32,12 @@ const StyledTablePagination = styled(TablePagination)(({ theme }) => ({
   "& .css-levciy-MuiTablePagination-displayedRows": {
     fontSize: "1.6rem",
     color: "white",
+    fontFamily: "Philosopher, sans-serif",
   },
   "& .MuiTablePagination-selectLabel": {
     fontSize: "1.6rem",
     color: "white",
+    fontFamily: "Philosopher, sans-serif",
   },
   "& .MuiTablePagination-select": {
     fontSize: "1.6rem",
@@ -44,10 +46,12 @@ const StyledTablePagination = styled(TablePagination)(({ theme }) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    fontFamily: "Philosopher, sans-serif",
   },
   "& .css-i4bv87-MuiSvgIcon-root": {
     fontSize: "2.2rem",
     color: "white",
+    fontFamily: "Philosopher, sans-serif",
   },
   "& .MuiTablePagination-selectIcon": {
     fontSize: "1.6rem",
@@ -56,10 +60,12 @@ const StyledTablePagination = styled(TablePagination)(({ theme }) => ({
   "& .MuiTablePagination-spacer": {
     fontSize: "1.6rem",
     color: "white",
+    fontFamily: "Philosopher, sans-serif",
   },
   "& .MuiTablePagination-actions": {
     fontSize: "1.6rem",
     color: "white",
+    fontFamily: "Philosopher, sans-serif",
   },
 }));
 
@@ -103,20 +109,21 @@ const ProductListData = () => {
           justifyContent: "space-between",
         }}
       >
-        <Typography
-          sx={{
+        <p
+          style={{
             color: "white",
             fontSize: "1.4rem",
             display: "flex",
             alignItems: "end",
             justifyContent: "start",
+            fontFamily: "Philosopher, sans-serif",
           }}
         >
           <HomeIcon
             sx={{ color: "white", fontSize: "3.5rem", marginRight: "1rem" }}
           />{" "}
           / Products
-        </Typography>
+        </p>
         <Box
           sx={{
             width: "30%",
@@ -181,6 +188,7 @@ const ProductListData = () => {
                         fontWeight: "bold",
                         textAlign: "center",
                         color: "white",
+                        fontFamily: "Philosopher, sans-serif",
                       }}
                     >
                       Id
@@ -192,6 +200,7 @@ const ProductListData = () => {
                         fontWeight: "bold",
                         textAlign: "center",
                         color: "white",
+                        fontFamily: "Philosopher, sans-serif",
                       }}
                     >
                       Name
@@ -204,6 +213,7 @@ const ProductListData = () => {
                         fontWeight: "bold",
                         textAlign: "center",
                         color: "white",
+                        fontFamily: "Philosopher, sans-serif",
                       }}
                     >
                       Action
@@ -219,6 +229,7 @@ const ProductListData = () => {
                           fontSize: "1.3rem",
                           color: "#b0bec5",
                           textAlign: "start",
+                          fontFamily: "Philosopher, sans-serif",
                         }}
                       >
                         {user.id}
@@ -228,6 +239,7 @@ const ProductListData = () => {
                           fontSize: "1.3rem",
                           color: "#b0bec5",
                           textAlign: "center",
+                          fontFamily: "Philosopher, sans-serif",
                         }}
                       >
                         {user.name}
@@ -240,6 +252,7 @@ const ProductListData = () => {
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
+                          fontFamily: "Philosopher, sans-serif",
                         }}
                       >
                         <Box
@@ -271,6 +284,7 @@ const ProductListData = () => {
                             sx={{
                               fontSize: "1rem",
                               backgroundColor: "#2e7d32",
+                              fontFamily: "Philosopher, sans-serif",
                               "&:hover": {
                                 backgroundColor: "#1b5e20",
                                 color: "white",

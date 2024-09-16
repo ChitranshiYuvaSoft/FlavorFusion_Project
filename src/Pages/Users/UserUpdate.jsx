@@ -23,7 +23,7 @@ import { updateUser } from "../../Redux/auth/authSlice";
 
 const UserUpdate = () => {
   // State Get From Slice
-  const { isLoading, edit, message } = useSelector((state) => state.auth);
+  const { isLoading, edit, message, updateStatus} = useSelector((state) => state.auth);
 console.log(message, "data save")
   // Hook Call
   const navigate = useNavigate();
@@ -46,7 +46,6 @@ console.log(message, "data save")
   };
 
   //  State
-
   const [userUpdatedData, setUserUpdatedData] = useState({
     name: "",
     email: "",
@@ -80,6 +79,12 @@ console.log(message, "data save")
       password: "",
     });
   };
+  console.log(updateStatus, "update")
+  useEffect(() => {
+    if(updateStatus =="200"){
+      navigate('/user-dashboard')
+    }
+  },[])
 
   useEffect(() => {
     setUserUpdatedData({
@@ -112,7 +117,7 @@ console.log(message, "data save")
           <Typography
             variant="h4"
             align="right"
-            sx={{ width: "35%", color: "white" }}
+            sx={{ width: "35%", color: "white", fontFamily: "Philosopher, sans-serif", }}
           >
             USER UPDATE
           </Typography>
@@ -195,6 +200,7 @@ console.log(message, "data save")
                   display: "flex",
                   alignItems: "end",
                   justifyContent: "start",
+                  fontFamily: "Philosopher, sans-serif",
                 }}
               >
                 <HomeIcon
@@ -266,6 +272,7 @@ console.log(message, "data save")
                             "& .MuiInputBase-input": {
                               color: "#424242",
                               fontSize: "1.4rem",
+                              fontFamily: "Philosopher, sans-serif",
                             },
                           }}
                           name="name"
@@ -283,6 +290,7 @@ console.log(message, "data save")
                               },
                             },
                             "& .MuiInputBase-input": {
+                              fontFamily: "Philosopher, sans-serif",
                               color: "#424242",
                               fontSize: "1.4rem",
                             },
@@ -304,6 +312,7 @@ console.log(message, "data save")
                             },
                             "& .MuiInputBase-input": {
                               color: "#424242",
+                              fontFamily: "Philosopher, sans-serif",
                               fontSize: "1.4rem",
                             },
                           }}
@@ -316,6 +325,7 @@ console.log(message, "data save")
                           fullWidth
                           sx={{
                             paddingBlock: "1rem",
+                            fontFamily: "Philosopher, sans-serif",
                             fontSize: "1.3rem",
                             backgroundColor: "#D4AF37",
                             color: "black",

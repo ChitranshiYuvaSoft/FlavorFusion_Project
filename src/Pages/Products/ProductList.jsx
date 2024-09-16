@@ -52,7 +52,7 @@ const ProductList = () => {
           <Typography
             variant="h4"
             align="right"
-            sx={{ width: "38%", color: "white" }}
+            sx={{ width: "38%", color: "white", fontFamily: "Philosopher, sans-serif", }}
           >
             Product Dashboard
           </Typography>

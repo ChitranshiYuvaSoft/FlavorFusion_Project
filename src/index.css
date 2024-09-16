@@ -1,16 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 /* Import CSS File */
 @import "./Pages/Auth/Auth.style.css";
-@import "./Pages//Categories/Category.style.css";
+@import "./Pages/Categories/Category.style.css";
 @import "./System/System.style.css";
-@import "./Components//Loading/Loading.style.css";
+@import "./Components/Loading/Loading.style.css";
 @import "./CountDown/Countdown.style.css";
 @import "./Pages/Home/HomePage.style.css";
-
 
 * {
   margin: 0rem;
   padding: 0rem;
   box-sizing: border-box;
+  font-family: "Philosopher", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 html {
   font-size: 62.5%;

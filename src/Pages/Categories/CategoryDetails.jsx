@@ -82,7 +82,7 @@ const CategoryDetails = () => {
             <Typography
               variant="h4"
               align="right"
-              sx={{ width: "40%", color: "white" }}
+              sx={{ width: "40%", color: "white", fontFamily: "Philosopher, sans-serif", }}
             >
               CATEGORY DETAILS
             </Typography>
@@ -139,6 +139,7 @@ const CategoryDetails = () => {
                     display: "flex",
                     alignItems: "end",
                     justifyContent: "start",
+                    fontFamily: "Philosopher, sans-serif",
                   }}
                 >
                   <HomeIcon
@@ -146,6 +147,7 @@ const CategoryDetails = () => {
                       color: "white",
                       fontSize: "3.5rem",
                       marginRight: "1rem",
+
                     }}
                   />{" "}
                   / Categories / Category Details
@@ -204,25 +206,25 @@ const CategoryDetails = () => {
                               flexDirection: "column",
                             }}
                           >
-                            <Typography variant="h6">
+                            <Typography variant="h6" sx={{fontFamily: "Philosopher, sans-serif",}}>
                               <span style={{ fontWeight: "bold" }}>
                                 Category Name :{" "}
                               </span>
                               {name}
                             </Typography>
-                            <Typography variant="h6">
+                            <Typography variant="h6" sx={{fontFamily: "Philosopher, sans-serif",}}>
                               <span style={{ fontWeight: "bold" }}>
                                 Category Id:{" "}
                               </span>
                               {_id}
                             </Typography>
-                            <Typography variant="h6">
+                            <Typography variant="h6" sx={{fontFamily: "Philosopher, sans-serif",}}>
                               <span style={{ fontWeight: "bold" }}>
                                 Create At :{" "}
                               </span>
                               {createAt}
                             </Typography>
-                            <Typography variant="h6">
+                            <Typography variant="h6" sx={{fontFamily: "Philosopher, sans-serif",}}>
                               <span style={{ fontWeight: "bold" }}>
                                 Update At :{" "}
                               </span>

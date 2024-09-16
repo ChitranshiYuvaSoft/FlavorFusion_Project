@@ -22,6 +22,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { userDetails } from "../../Redux/auth/authSlice";
 import BackBtn from "../../Components/Button/BackBtn";
 import defaultImg from "../../assets/Img/userDefaultImage.png";
+import VerifiedIcon from "@mui/icons-material/Verified";
+import CancelIcon from "@mui/icons-material/Cancel";
 const UserDetails = () => {
   const { isLoading, userInfo } = useSelector((state) => state.auth);
 
@@ -54,7 +56,7 @@ const UserDetails = () => {
 
   console.log(userInfo);
   const { id, name, email, createAt, updateAt, isEmailVerified } = userInfo;
-
+  console.log(isEmailVerified);
   return (
     <>
       <Box
@@ -212,115 +214,78 @@ const UserDetails = () => {
                         <Paper
                           sx={{
                             width: "100%",
-                            height: "30%",
-                            paddingInline: "2rem",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
+                            height: "35%",
+                            borderRadius: "0rem",
+                            border: "none",
+                            boxShadow: "none",
                           }}
+                          className="displayClass"
                         >
-                          <Box
+                          <Paper
                             sx={{
-                              width: "25%",
+                              width: "20%",
                               height: "90%",
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
+                              boxShadow: "none",
+                              borderRadius: "50%",
                             }}
+                            className="displayClass"
                           >
-                            <Paper
-                              sx={{
-                                width: "75%",
-                                height: "90%",
-                                backgroundColor: "white",
-                                borderRadius: "50%",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                              }}
-                            >
-                              <img
-                                src={defaultImg}
-                                alt="userImg"
-                                width={"100%"}
-                                height={"100%"}
-                                style={{ borderRadius: "50%" }}
-                              />
-                            </Paper>
-                          </Box>
-                          <Box
-                            sx={{
-                              width: "75%",
-                              height: "50%",
-                              display: "flex",
-                              alignItems: "start",
-                              justifyContent: "space-around",
-                              flexDirection: "column",
-                            }}
-                          >
-                            <Typography variant="h6">
-                              <span style={{ fontWeight: "bold" }}>
-                                UserName:{" "}
-                              </span>
-                              {name}
-                            </Typography>
-
-                            <Typography variant="h6">
-                              <span style={{ fontWeight: "bold" }}>
-                                UserId :{" "}
-                              </span>
-                              {id}
-                            </Typography>
-                          </Box>
+                            {isEmailVerified ? (
+                              <>
+                                <VerifiedIcon
+                                  sx={{ fontSize: "7rem", color: "green" }}
+                                />
+                              </>
+                            ) : (
+                              <>
+                                <CancelIcon
+                                  sx={{ fontSize: "7rem", color: "maroon" }}
+                                />
+                              </>
+                            )}
+                          </Paper>
                         </Paper>
-                        <Paper
+                        <Box
                           sx={{
                             width: "100%",
-                            height: "60%",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            paddingBlock: "1rem",
-                            paddingInline: "5rem",
+                            height: "55%",
+                            borderRadius: "0rem",
+                            flexDirection: "column",
+                            justifyContent: "space-around",
+                            fontFamily: "Philosopher, sans-serif",
                           }}
+                          className="displayClass"
                         >
-                          <Box
-                            sx={{
-                              width: "100%",
-                              height: "100%",
-                              display: "flex",
-                              alignItems: "start",
-                              justifyContent: "space-around",
-                              flexDirection: "column",
-                            }}
-                          >
-                            <Typography variant="h6">
-                              <span style={{ fontWeight: "bold" }}>
-                                Email:{" "}
-                              </span>
-                              {email}
-                            </Typography>
+                          <Typography variant="h6" sx={{fontFamily: "Philosopher, sans-serif",}}>
+                            <span style={{ fontWeight: "bold" }}>
+                              UserName:{" "}
+                            </span>
+                            {name}
+                          </Typography>
 
-                            <Typography variant="h6">
-                              <span style={{ fontWeight: "bold" }}>
-                                isEmailVerified :{" "}
-                              </span>
-                              {isEmailVerified}
-                            </Typography>
-                            <Typography variant="h6">
-                              <span style={{ fontWeight: "bold" }}>
-                                Created At :{" "}
-                              </span>
-                              {createAt}
-                            </Typography>
-                            <Typography variant="h6">
-                              <span style={{ fontWeight: "bold" }}>
-                                Updated At :{" "}
-                              </span>
-                              {updateAt}
-                            </Typography>
-                          </Box>
-                        </Paper>
+                          <Typography variant="h6" sx={{fontFamily: "Philosopher, sans-serif",}}>
+                            <span style={{ fontWeight: "bold" }}>
+                              UserId :{" "}
+                            </span>
+                            {id}
+                          </Typography>
+                          <Typography variant="h6" sx={{fontFamily: "Philosopher, sans-serif",}}>
+                            <span style={{ fontWeight: "bold" }}>Email: </span>
+                            {email}
+                          </Typography>
+                          <Typography variant="h6" sx={{fontFamily: "Philosopher, sans-serif",}}>
+                            <span style={{ fontWeight: "bold" }}>
+                              Created At :{" "}
+                            </span>
+                            {createAt}
+                          </Typography>
+                          <Typography variant="h6" sx={{fontFamily: "Philosopher, sans-serif",}}>
+                            <span style={{ fontWeight: "bold" }}>
+                              Updated At :{" "}
+                            </span>
+                            {updateAt}
+                          </Typography>
+                        </Box>
                       </Card>
                     </Box>
                   </>
