@@ -11,6 +11,8 @@ import CategoryList from "../Pages/Categories/CategoryList";
 import ProductList from "../Pages/Products/ProductList";
 import UserList from "../Pages/Users/UserList";
 import UserUpdate from "../Pages/Users/UserUpdate";
+import ProductDetails from "../Pages/Products/ProductDetails";
+import ProductAdd from "../Pages/Products/ProductAdd";
 
 const Layout = () => {
   return (
@@ -43,6 +45,14 @@ const Layout = () => {
           <Route
             path="/product-dashboard"
             element={<PrivateRoute Component={ProductList} />}
+          />
+           <Route
+            path="/product-details/:_id"
+            element={<PrivateRoute Component={ProductDetails} />}
+          />
+          <Route
+            path="/product"
+            element={<PrivateRoute Component={ProductAdd} />}
           />
 
           {/* Category Routes */}

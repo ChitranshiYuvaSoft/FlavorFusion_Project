@@ -21,7 +21,7 @@ axiosInstance.interceptors.request.use(
 
 axiosInstance.interceptors.response.use(
   (response) => {
-    toast.success(response.data.message);
+    // toast.success(response.data.message);
     return response;
   },
   (error) => {

@@ -1,6 +1,8 @@
 import {
   Box,
   Button,
+  MenuItem,
+  Select,
   Table,
   TableBody,
   TableCell,
@@ -8,7 +10,6 @@ import {
   TableHead,
   TablePagination,
   TableRow,
-  Typography,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import HomeIcon from "@mui/icons-material/Home";
@@ -19,7 +20,9 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProducts } from "../../Redux/Products/productSlice";
 import CircularLoader from "../Loading/CircularLoader";
-
+import { useNavigate } from "react-router-dom";
+import imgNotFound from "../../assets/Img/ImageNotFound.jpg";
+import { getAllCategories } from "../../Redux/Categories/categoriesSlice";
 const allProductsData = Array.from({ length: 100 }, (_, index) => ({
   id: index + 1,
   name: `Products ${index + 1}`,
@@ -70,9 +73,25 @@ const StyledTablePagination = styled(TablePagination)(({ theme }) => ({
 }));
 
 const ProductListData = () => {
-  const { isLoading, allProducts } = useSelector((state) => state.product);
+  // Get State from Slice
+  const { allCategories } = useSelector((state) => state.category);
+  const { isLoading, allProductList } = useSelector((state) => state.product);
+  const [category,setCategory] = useState("")
+  const [singleCategoryData, setSingleCategoryData] = useState([])
 
-  console.log(allProducts);
+ 
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value)
+    setSingleCategoryData(allProductList.filter((item)=>item.categoryId === category))
+  }
+
+  console.log(singleCategoryData,"single category data")
+
+
+
+  // Hooks Call
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   // Pagination
   const [page, setPage] = useState(0);
@@ -87,16 +106,24 @@ const ProductListData = () => {
     setPage(0);
   };
 
-  const dispatch = useDispatch();
-
+  // Get All Product Data
   useEffect(() => {
     dispatch(getAllProducts());
   }, []);
 
-  const currentPageData = allProductsData.slice(
+  // Get Category Name and Show Value
+  useEffect(() => {
+    dispatch(getAllCategories());
+  }, []);
+
+  console.log(allProductList, "asdd");
+
+  const currentPageData = allProductList.slice(
     page * rowsPerPage,
     page * rowsPerPage + rowsPerPage
   );
+
+  const productCategoryName = (id) => {};
 
   return (
     <>
@@ -133,7 +160,41 @@ const ProductListData = () => {
             justifyContent: "end",
           }}
         >
+          <select
+            fullWidth
+            required
+            style={{
+              height:"38%",
+              marginRight:"1vh"
+            }}
+            name="category"
+            onChange={handleCategoryChange}
+          >
+            <option
+                value="All"
+                style={{
+                  fontSize: "1.4rem",
+                  color: "#424242",
+                  fontFamily: "Philosopher, sans-serif",
+                }}
+              >
+                All
+              </option>
+            {allCategories.map((categoryName) => (
+              <option
+                value={categoryName._id}
+                style={{
+                  fontSize: "1.4rem",
+                  color: "#424242",
+                  fontFamily: "Philosopher, sans-serif",
+                }}
+              >
+                {categoryName.name}
+              </option>
+            ))}
+          </select>
           <Button
+            onClick={() => navigate("/product")}
             variant="contained"
             sx={{
               fontSize: "1.2rem",
@@ -191,8 +252,34 @@ const ProductListData = () => {
                         fontFamily: "Philosopher, sans-serif",
                       }}
                     >
-                      Id
+                      Product
                     </TableCell>
+                    <TableCell
+                      sx={{
+                        width: "20%",
+                        fontSize: "1.6rem",
+                        fontWeight: "bold",
+                        textAlign: "center",
+                        color: "white",
+                        fontFamily: "Philosopher, sans-serif",
+                      }}
+                    >
+                      Product Name
+                    </TableCell>
+
+                    <TableCell
+                      sx={{
+                        width: "20%",
+                        fontSize: "1.6rem",
+                        fontWeight: "bold",
+                        textAlign: "center",
+                        color: "white",
+                        fontFamily: "Philosopher, sans-serif",
+                      }}
+                    >
+                      Product Category
+                    </TableCell>
+
                     <TableCell
                       sx={{
                         width: "30%",
@@ -203,36 +290,45 @@ const ProductListData = () => {
                         fontFamily: "Philosopher, sans-serif",
                       }}
                     >
-                      Name
-                    </TableCell>
-
-                    <TableCell
-                      sx={{
-                        width: "40%",
-                        fontSize: "1.6rem",
-                        fontWeight: "bold",
-                        textAlign: "center",
-                        color: "white",
-                        fontFamily: "Philosopher, sans-serif",
-                      }}
-                    >
-                      Action
+                      Product Details
                     </TableCell>
                   </TableRow>
                 </TableHead>
 
                 <TableBody>
-                  {currentPageData.map((user) => (
-                    <TableRow key={user.id}>
+                  {currentPageData.map((product) => (
+                    <TableRow
+                      key={product.id}
+                      sx={{ height: "10rem", marginBlock: "2rem" }}
+                    >
                       <TableCell
                         sx={{
                           fontSize: "1.3rem",
                           color: "#b0bec5",
                           textAlign: "start",
                           fontFamily: "Philosopher, sans-serif",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          height: "100%",
                         }}
                       >
-                        {user.id}
+                        <Box
+                          className="displayClass "
+                          sx={{ width: "40%", height: "10rem" }}
+                        >
+                          <img
+                            src={
+                              !product.fileName
+                                ? imgNotFound
+                                : `https://node-js-wse4.onrender.com/uploads/${product.fileName}`
+                            }
+                            // src={"https://documentmanagement-backend.onrender.com"+ "/uploads/" + product.fileName}
+                            alt="notFound"
+                            width={"100%"}
+                            height={"100%"}
+                          />
+                        </Box>
                       </TableCell>
                       <TableCell
                         sx={{
@@ -242,29 +338,36 @@ const ProductListData = () => {
                           fontFamily: "Philosopher, sans-serif",
                         }}
                       >
-                        {user.name}
+                        {product.name}
+                      </TableCell>
+                      <TableCell
+                        sx={{
+                          fontSize: "1.3rem",
+                          color: "#b0bec5",
+                          textAlign: "center",
+                          fontFamily: "Philosopher, sans-serif",
+                        }}
+                      >
+                        {product.name}
                       </TableCell>
 
                       <TableCell
                         sx={{
-                          width:"100%",
                           fontSize: "1.4rem",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
                           fontFamily: "Philosopher, sans-serif",
+                          paddingLeft: "10rem",
                         }}
                       >
-                        <Box
+                        {/* <Box
                           sx={{
                             width: "70%",
                             height: "100%",
                             display: "flex",
                             alignItems: "center",
-                            justifyContent: "space-around",
+                            justifyContent: "center",
                           }}
-                        >
-                          <Button
+                        > */}
+                        {/* <Button
                             variant="contained"
                             color="warning"
                             sx={{ fontSize: "1rem", paddingBlock: "0.7rem" }}
@@ -277,23 +380,26 @@ const ProductListData = () => {
                             sx={{ fontSize: "1rem", paddingBlock: "0.7rem" }}
                           >
                             <DeleteIcon />
-                          </Button>
+                          </Button> */}
 
-                          <Button
-                            variant="contained"
-                            sx={{
-                              fontSize: "1rem",
-                              backgroundColor: "#2e7d32",
-                              fontFamily: "Philosopher, sans-serif",
-                              "&:hover": {
-                                backgroundColor: "#1b5e20",
-                                color: "white",
-                              },
-                            }}
-                          >
-                            View Details
-                          </Button>
-                        </Box>
+                        <Button
+                          variant="contained"
+                          sx={{
+                            fontSize: "1rem",
+                            backgroundColor: "#2e7d32",
+                            fontFamily: "Philosopher, sans-serif",
+                            "&:hover": {
+                              backgroundColor: "#1b5e20",
+                              color: "white",
+                            },
+                          }}
+                          onClick={() =>
+                            navigate(`/product-details/${product._id}`)
+                          }
+                        >
+                          View Details
+                        </Button>
+                        {/* </Box> */}
                       </TableCell>
                     </TableRow>
                   ))}

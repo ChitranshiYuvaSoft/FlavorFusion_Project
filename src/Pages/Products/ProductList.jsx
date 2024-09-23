@@ -7,11 +7,12 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import ProductListData from "../../Components/Product/ProductListData";
 
 const ProductList = () => {
+
   const [isClosing, setIsClosing] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -27,6 +28,7 @@ const ProductList = () => {
   const handleDrawerTransitionEnd = () => {
     setIsClosing(false);
   };
+
 
   return (
     <Box
@@ -52,7 +54,11 @@ const ProductList = () => {
           <Typography
             variant="h4"
             align="right"
-            sx={{ width: "38%", color: "white", fontFamily: "Philosopher, sans-serif", }}
+            sx={{
+              width: "38%",
+              color: "white",
+              fontFamily: "Philosopher, sans-serif",
+            }}
           >
             Product Dashboard
           </Typography>

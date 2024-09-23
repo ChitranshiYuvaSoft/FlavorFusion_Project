@@ -7,7 +7,7 @@
 @import "./Components/Loading/Loading.style.css";
 @import "./CountDown/Countdown.style.css";
 @import "./Pages/Home/HomePage.style.css";
-
+@import "./Pages/Products/Prouducts.style.css";
 * {
   margin: 0rem;
   padding: 0rem;
@@ -91,6 +91,5 @@ html {
     height: 60%;
   }
 }
-
 
 

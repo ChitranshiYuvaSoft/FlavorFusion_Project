@@ -1,5 +1,5 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import HomePage from "../Pages/Home/HomePage";
 import LoginPage from "../Pages/Auth/LoginPage";
 import RegisterPage from "../Pages/Auth/RegisterPage";
@@ -17,6 +17,13 @@ import PageNotFound from "../System/PageNotFound";
 
 const AppRoute = () => {
   const { userToken } = useSelector((state) => state.auth);
+  const navigate = useNavigate()
+
+  useEffect(()=>{
+    if(!userToken){
+      navigate("/login")
+    }
+  },[userToken])
 
   return (
     <>
