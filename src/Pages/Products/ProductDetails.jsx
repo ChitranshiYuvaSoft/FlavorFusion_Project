@@ -242,8 +242,8 @@ const ProductDetails = () => {
                       >
                         <img
                           //src={`https://node-js-wse4.onrender.com/uploads/1723054005146-pexels-photo-1212693.webp`}
-                          src={`https://node-js-wse4.onrender.com/uploads/1726824427259-burger.jpg`}
-                          // src={`https://node-js-wse4.onrender.com/uploads/${product.fileName}`}
+                          // src={`https://node-js-wse4.onrender.com/uploads/1726824427259-burger.jpg`}
+                          src={`https://node-js-wse4.onrender.com/uploads/${product.fileName}`}
                           alt="notFound"
                           width="90%"
                           height="90%"

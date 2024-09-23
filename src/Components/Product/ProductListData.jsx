@@ -76,18 +76,17 @@ const ProductListData = () => {
   // Get State from Slice
   const { allCategories } = useSelector((state) => state.category);
   const { isLoading, allProductList } = useSelector((state) => state.product);
-  const [category,setCategory] = useState("")
-  const [singleCategoryData, setSingleCategoryData] = useState([])
+  const [category, setCategory] = useState("");
+  const [singleCategoryData, setSingleCategoryData] = useState([]);
 
- 
   const handleCategoryChange = (e) => {
-    setCategory(e.target.value)
-    setSingleCategoryData(allProductList.filter((item)=>item.categoryId === category))
-  }
+    setCategory(e.target.value);
+    setSingleCategoryData(
+      allProductList.filter((item) => item.categoryId === category)
+    );
+  };
 
-  console.log(singleCategoryData,"single category data")
-
-
+  console.log(singleCategoryData, "single category data");
 
   // Hooks Call
   const navigate = useNavigate();
@@ -116,7 +115,7 @@ const ProductListData = () => {
     dispatch(getAllCategories());
   }, []);
 
-  console.log(allProductList, "asdd");
+  console.log(allCategories, "asdd");
 
   const currentPageData = allProductList.slice(
     page * rowsPerPage,
@@ -164,22 +163,22 @@ const ProductListData = () => {
             fullWidth
             required
             style={{
-              height:"38%",
-              marginRight:"1vh"
+              height: "38%",
+              marginRight: "1vh",
             }}
             name="category"
             onChange={handleCategoryChange}
           >
             <option
-                value="All"
-                style={{
-                  fontSize: "1.4rem",
-                  color: "#424242",
-                  fontFamily: "Philosopher, sans-serif",
-                }}
-              >
-                All
-              </option>
+              value="All"
+              style={{
+                fontSize: "1.4rem",
+                color: "#424242",
+                fontFamily: "Philosopher, sans-serif",
+              }}
+            >
+              All
+            </option>
             {allCategories.map((categoryName) => (
               <option
                 value={categoryName._id}
@@ -348,7 +347,8 @@ const ProductListData = () => {
                           fontFamily: "Philosopher, sans-serif",
                         }}
                       >
-                        {product.name}
+                        {product.categoryId}
+                        
                       </TableCell>
 
                       <TableCell

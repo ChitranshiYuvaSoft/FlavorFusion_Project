@@ -18,6 +18,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import CircularLoader from "../Loading/CircularLoader";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useNavigate } from "react-router-dom";
+import DeleteDialog from "../DeleteDialog/DeleteDialog";
 
 const StyledTablePagination = styled(TablePagination)(({ theme }) => ({
   "& .css-levciy-MuiTablePagination-displayedRows": {
@@ -110,6 +111,19 @@ const UserListData = () => {
     navigate(`/user-update/${user.id}`);
   };
 
+
+  // Delete Dialog
+  const [openDeleteBox, setOpenDeleteBox] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpenDeleteBox(true);
+  };
+
+  const handleCloseDeleteBox = () => {
+    setOpenDeleteBox(false);
+  };
+
+  
   return (
     <>
       <Box
@@ -289,10 +303,12 @@ const UserListData = () => {
                             paddingBlock: "0.6rem",
                             fontFamily: "Philosopher, sans-serif",
                           }}
-                          onClick={() => handleUserDelete(user.id)}
+                          // onClick={() => handleUserDelete(user.id)}
+                          onClick={handleClickOpen}
                         >
                           <DeleteIcon />
                         </Button>
+                        <DeleteDialog id={user.id} handleCloseDeleteBox={handleCloseDeleteBox} openDeleteBox={openDeleteBox} />
 
                         <Button
                           variant="contained"

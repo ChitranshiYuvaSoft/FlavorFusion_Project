@@ -47,7 +47,7 @@ import { createProduct } from "../../Redux/Products/productSlice";
 // });
 
 // File Type
-const fileTypes = ["JPG", "PNG", "webp", "JPEG"];
+const fileTypes = ["JPG", "PNG", "webp", "JPEG", "avif"];
 
 const ProductAdd = () => {
   // Hook Call
@@ -98,14 +98,63 @@ const ProductAdd = () => {
   //   },
   // });
 
-  
+  const [formData, setFormData] = useState({
+    name: "",
+    description: "",
+    status: false,
+    categoryId: "",
+  });
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleFileChange = (e) => {
+    setSelectedFile(e.target.files[0]);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = new FormData();
+    console.log(data, "data");
+
+    data.append("name", formData.name);
+    data.append("categoryId", formData.categoryId);
+    data.append("description", formData.description);
+    data.append("status", formData.status);
+
+    if (file) {
+      data.append("image", file);
+    }
+
+    console.log(data);
+
+    // dispatch(createProduct(data));
+    dispatch(createProduct(data))
+      // .unwrap()
+      // .then((data) => {
+      //   console.log(8888, data);
+      //   // if (res.data === true) {
+      //   //   reset({
+      //   //     publishDate: formData.publishDate,
+      //   //   });
+      //   // }
+      // });
+
+    for (let [key, value] of data.entries()) {
+      console.log(key, value);
+    }
+  };
 
   // Get Category Name and Show Value
   useEffect(() => {
     dispatch(getAllCategories());
   }, []);
 
-  console.log(allCategories, "asdd");
+  // console.log(allCategories, "asdd");
 
   return (
     <Box
@@ -285,7 +334,7 @@ const ProductAdd = () => {
                             flexDirection: "column",
                           }}
                           action=""
-                          // onSubmit={formik.handleSubmit}
+                          onSubmit={handleSubmit}
                         >
                           <TextField
                             placeholder="Enter Product Name"
@@ -303,6 +352,10 @@ const ProductAdd = () => {
                                 fontFamily: "Philosopher, sans-serif",
                               },
                             }}
+                            name="name"
+                            value={formData.name}
+                            onChange={handleInputChange}
+
                             // name="name"
                             // value={name}
                             // onChange={handleChange}
@@ -334,6 +387,9 @@ const ProductAdd = () => {
                                 fontFamily: "Philosopher, sans-serif",
                               },
                             }}
+                            name="description"
+                            value={formData.description}
+                            onChange={handleInputChange}
                             // name="name"
                             // value={name}
                             // onChange={handleChange}
@@ -383,6 +439,9 @@ const ProductAdd = () => {
                                   color: "#424242",
                                 },
                               }}
+                              name="status"
+                              value={formData.status}
+                              onChange={handleInputChange}
                               // name="status"
                               // value={status}
                               // onChange={handleChange}
@@ -443,6 +502,9 @@ const ProductAdd = () => {
                                   color: "#424242",
                                 },
                               }}
+                              name="categoryId"
+                              value={formData.categoryId}
+                              onChange={handleInputChange}
                               // name="status"
                               // value={status}
                               // onChange={handleChange}
@@ -476,10 +538,12 @@ const ProductAdd = () => {
                           <FileUploader
                             handleChange={handleChange}
                             name="file"
+                            // type={file}
                             types={fileTypes}
                             required="true"
                             label="Upload Product Image"
                             classes="product-img"
+                            onChange={handleFileChange}
                             // name="image"
                             // value={formik.values.file}
                             // onChange={formik.handleChange}
