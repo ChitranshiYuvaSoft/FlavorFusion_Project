@@ -115,7 +115,6 @@ const ProductListData = () => {
     dispatch(getAllCategories());
   }, []);
 
-  console.log(allCategories, "asdd");
 
   const currentPageData = allProductList.slice(
     page * rowsPerPage,
@@ -411,7 +410,7 @@ const ProductListData = () => {
         <Box sx={{ width: "100%", height: "10%" }}>
           <StyledTablePagination
             component="div"
-            count={allProductsData.length}
+            count={allProductList.length}
             page={page}
             onPageChange={handleChangePage}
             rowsPerPage={rowsPerPage}

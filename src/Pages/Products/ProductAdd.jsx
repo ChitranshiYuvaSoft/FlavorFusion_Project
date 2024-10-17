@@ -80,24 +80,6 @@ const ProductAdd = () => {
     setFile(file);
   };
 
-  // Formik Form In Material UI Create Category
-  // const formik = useFormik({
-  //   initialValues: {
-  //     name: "",
-  //     description: "",
-  //     status: false,
-  //     categoryId: "",
-  //   },
-
-  //   validationSchema: validationSchema,
-  //   onSubmit: (values) => {
-  //     alert(values);
-  //     console.log(values, "productCreate");
-  //     dispatch(createProduct(values));
-  //     toast.success("Successfully Create Category!!");
-  //   },
-  // });
-
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -119,42 +101,21 @@ const ProductAdd = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = new FormData();
-    console.log(data, "data");
-
     data.append("name", formData.name);
     data.append("categoryId", formData.categoryId);
     data.append("description", formData.description);
     data.append("status", formData.status);
-
     if (file) {
       data.append("image", file);
     }
-
-    console.log(data);
-
-    // dispatch(createProduct(data));
-    dispatch(createProduct(data))
-      // .unwrap()
-      // .then((data) => {
-      //   console.log(8888, data);
-      //   // if (res.data === true) {
-      //   //   reset({
-      //   //     publishDate: formData.publishDate,
-      //   //   });
-      //   // }
-      // });
-
-    for (let [key, value] of data.entries()) {
-      console.log(key, value);
-    }
+    dispatch(createProduct(data)).then((res)=>{
+      navigate('/product-dashboard');
+    });
   };
 
-  // Get Category Name and Show Value
   useEffect(() => {
     dispatch(getAllCategories());
   }, []);
-
-  // console.log(allCategories, "asdd");
 
   return (
     <Box

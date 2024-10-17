@@ -46,16 +46,6 @@ const ForgotPassword = ({ open, handleClose }) => {
     },
   });
 
-  // const handleForgotPassword = (e) => {
-  //   e.preventDefault();
-  //   dispatch(
-  //     forgotPasword({
-  //       email: userEmail,
-  //     })
-  //   );
-  //   setUserEmail("");
-  //   console.log("done");
-  // };
 
   return (
     <>
@@ -91,8 +81,7 @@ const ForgotPassword = ({ open, handleClose }) => {
                   fontSize: "1.4rem",
                 },
               }}
-              // value={userEmail}
-              // onChange={(e) => setUserEmail(e.target.value)}
+          
               name="email"
               value={formik.values.email}
               onChange={formik.handleChange}
@@ -117,7 +106,7 @@ const ForgotPassword = ({ open, handleClose }) => {
                 },
               }}
               type="submit"
-              // onClick={handleForgotPassword}
+          
             >
               Forgot Password
             </Button>

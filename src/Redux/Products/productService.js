@@ -1,4 +1,3 @@
-import axios from "axios";
 import axiosInstance from "../Services/axiosServiceHandler";
 
 const allProducts = async () => {
@@ -11,17 +10,11 @@ const getProductDetails = async (_id) => {
   return response.data.data;
 };
 
-const productAdd = async (productData ) => {
+const productAdd = async (productData) => {
   for (let [key, value] of productData.entries()) {
     console.log(key, value);
   }
-  // const config = {
-  //   headers: {
-  //   //   Authorization: `Bearer ${token}`,
-  //     "Content-Type": "multipart/form-data",
-  //      "Authorization": `Bearer ${token}`
-  //   },
-  // };
+
   console.log(productData, "Service Create product");
   const response = await axiosInstance.post("/product", productData);
   console.log(response);

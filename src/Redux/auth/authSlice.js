@@ -4,7 +4,7 @@ import authServices from "./authService";
 const initialState = {
   user: {},
   registerUser: null,
-  allUsers: [],
+  allUsersData: [],
   userInfo: {
     name: "default Name",
     email: "default@gmail.com",
@@ -44,7 +44,6 @@ const authSlice = createSlice({
         state.isSuccess = false;
       })
       .addCase(loginUser.fulfilled, (state, action) => {
-        // console.log(action.payload,"login action")
         localStorage.setItem("token", action.payload.token);
         state.userToken = action.payload.token;
         state.isLoading = false;
@@ -66,7 +65,6 @@ const authSlice = createSlice({
         state.isSuccess = false;
       })
       .addCase(googleLogin.fulfilled, (state, action) => {
-        console.log(action.payload, "login action");
         localStorage.setItem("token", action.payload.token);
         state.userToken = action.payload.token;
         state.isLoading = false;
@@ -128,7 +126,7 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.isError = false;
         state.isSuccess = true;
-        state.allUsers = action.payload;
+        state.allUsersData = action.payload;
         state.updateStatus = "";
       })
       .addCase(getAllUser.rejected, (state, action) => {
@@ -256,7 +254,7 @@ export const loginUser = createAsyncThunk(
 export const googleLogin = createAsyncThunk(
   "GOOGLE/LOGIN",
   async (userToken, thunkAPI) => {
-    console.log(userToken);
+ 
     try {
       return await authServices.googleUserLogin(userToken);
     } catch (error) {

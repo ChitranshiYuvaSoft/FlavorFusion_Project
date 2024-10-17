@@ -10,10 +10,8 @@ const login = async (formdata) => {
 
 // Google Login
 const googleUserLogin = async (userToken) => {
-  console.log(userToken, "userToken");
   const response = await axiosInstance.post(`/user/google-login`, userToken);
-  console.log(response.data.data);
-  return response.data.data;
+   return response.data.data;
 };
 
 // Register User
@@ -41,20 +39,17 @@ const allUsers = async () => {
 const getUserDetails = async (userId) => {
   console.log(userId, "service");
   const response = await axiosInstance.get(`/user/${userId}`);
-  console.log(response.data.user);
   return response.data.user;
 };
 
 // Delete User
 const removeUser = async (id) => {
   const response = await axiosInstance.delete(`/user/${id}`);
-  console.log(response.data, "delte servicre");
   return response.data;
 };
 
 // Update User
 const updatedUser = async (userData) => {
-  console.log(userData, "from UserData Service");
   const response = await axiosInstance.put(`/user/${userData.id}`, {
     name : userData.name,
     email : userData.email,
@@ -66,16 +61,13 @@ const updatedUser = async (userData) => {
 
 // Forgot Password
 const userForgetPassword = async(email) => {
-  console.log(email);
   const response = await axiosInstance.post(`/user/forgot-password`, email);
-  console.log(response);
   return response;
 }
 
 // Reset Password
 const userPasswordReset = async(data) => {
   const response = await axiosInstance.post(`/user/reset-password`, data);
-  console.log(response);
   return response;
 }
 

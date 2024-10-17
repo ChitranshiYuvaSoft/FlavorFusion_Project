@@ -116,7 +116,6 @@ const CategoryListData = () => {
   // Create and Update Category
   const handleCreateCategory = (e) => {
     e.preventDefault();
-    console.log("Create Category");
     if (edit.isEdit) {
       dispatch(
         updateCategory({

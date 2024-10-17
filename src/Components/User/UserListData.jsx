@@ -63,8 +63,7 @@ const StyledTablePagination = styled(TablePagination)(({ theme }) => ({
 }));
 
 const UserListData = () => {
-  const { user, allUsers, isLoading } = useSelector((state) => state.auth);
-
+  const { user, allUsersData, isLoading } = useSelector((state) => state.auth);
   const [open, setOpen] = React.useState(false);
   const handleClose = () => {
     setOpen(false);
@@ -95,18 +94,16 @@ const UserListData = () => {
     setPage(0);
   };
 
-  const currentPageData = allUsers.slice(
+  const currentPageData = allUsersData.slice(
     page * rowsPerPage,
     page * rowsPerPage + rowsPerPage
   );
 
   const handleUserDetails = (userId) => {
-    console.log(userId);
     navigate(`/user-details/${userId}`);
   };
 
   const handleUserUpdate = (user) => {
-    console.log(user);
     dispatch(editUser(user));
     navigate(`/user-update/${user.id}`);
   };
@@ -337,7 +334,7 @@ const UserListData = () => {
         <Box sx={{ width: "100%", height: "10%" }}>
           <StyledTablePagination
             component="div"
-            count={allUsers.length}
+            count={allUsersData.length}
             page={page}
             onPageChange={handleChangePage}
             rowsPerPage={rowsPerPage}
