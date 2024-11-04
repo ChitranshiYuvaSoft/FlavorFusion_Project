@@ -11,6 +11,7 @@ const login = async (formdata) => {
 // Google Login
 const googleUserLogin = async (userToken) => {
   const response = await axiosInstance.post(`/user/google-login`, userToken);
+  console.log(response)
    return response.data.data;
 };
 
